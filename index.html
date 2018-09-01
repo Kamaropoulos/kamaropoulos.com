@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Konstantinos Kamaropoulos">
 
     <title>Konstantinos Kamaropoulos</title>
 
@@ -34,6 +34,20 @@
 
     gtag('config', 'UA-120375214-2');
     </script>
+
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/form.css">
+<!--===============================================================================================-->
 
 
 </head>
@@ -64,6 +78,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="https://blog.kamaropoulos.tk">Blog</a>
@@ -335,6 +352,55 @@
             </div>
         </section>
 
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contact">
+            <div class="my-auto">
+                
+                <div>
+                    <div class="container-contact1">
+                        <div class="contact1-pic js-tilt" data-tilt>
+                            <img src="img/img-01.png" alt="IMG">
+                        </div>
+            
+                        <form action="https://formspree.io/kamaropoulos@outlook.com" method="POST" class="contact1-form validate-form">
+                            <span class="contact1-form-title">
+                                Get in touch
+                            </span>
+            
+                            <div class="wrap-input1 validate-input" data-validate = "Name is required">
+                                <input class="input1" type="text" name="name" placeholder="Name">
+                                <span class="shadow-input1"></span>
+                            </div>
+            
+                            <div class="wrap-input1 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                                <input class="input1" type="text" name="email" placeholder="Email">
+                                <span class="shadow-input1"></span>
+                            </div>
+            
+                            <div class="wrap-input1 validate-input" data-validate = "Subject is required">
+                                <input class="input1" type="text" name="subject" placeholder="Subject">
+                                <span class="shadow-input1"></span>
+                            </div>
+            
+                            <div class="wrap-input1 validate-input" data-validate = "Message is required">
+                                <textarea class="input1" name="message" placeholder="Message"></textarea>
+                                <span class="shadow-input1"></span>
+                            </div>
+            
+                            <div class="container-contact1-form-btn">
+                                <button class="contact1-form-btn">
+                                    <span>
+                                        Send Email
+                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
     </div>
 
     <!-- Bootstrap core JavaScript -->
@@ -346,6 +412,24 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/resume.min.js"></script>
+
+    <!--===============================================================================================-->
+	<!-- <script src="vendor/jquery/jquery-3.2.1.min.js"></script> -->
+    <!--===============================================================================================-->
+        <script src="vendor/bootstrap/js/popper.js"></script>
+        <!-- <script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
+    <!--===============================================================================================-->
+        <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+        <script src="vendor/tilt/tilt.jquery.min.js"></script>
+        <script >
+            $('.js-tilt').tilt({
+                scale: 1.1
+            })
+        </script>
+
+    <!--===============================================================================================-->
+	<script src="js/form.js"></script>
 
 </body>
 
