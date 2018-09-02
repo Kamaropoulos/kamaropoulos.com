@@ -186,12 +186,16 @@
   
   .contact1-form-title {
     display: block;
-    font-family: Montserrat-ExtraBold;
-    font-size: 24px;
-    color: #333333;
+    /* font-family: Montserrat-ExtraBold; */
+    font-size: 32px;
+    /* color: #333333; */
     line-height: 1.2;
     text-align: center;
     padding-bottom: 44px;
+    font-family: 'Saira Extra Condensed', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #343a40;
   }
   
   input.input1 {
@@ -224,8 +228,9 @@
     display: block;
     width: 100%;
     background: #e6e6e6;
-    font-family: Montserrat-Bold;
-    font-size: 15px;
+    /* font-family: Montserrat-Bold; */
+    font-family: 'Saira Extra Condensed', serif;
+    font-size: 24px;
     line-height: 1.5;
     color: #666666;
   }
@@ -278,8 +283,9 @@
     height: 50px;
     border-radius: 25px;
     background: #007bff;
-    font-family: Montserrat-Bold;
-    font-size: 15px;
+    /* font-family: Montserrat-Bold; */
+    font-family: 'Saira Extra Condensed', serif;    
+    font-size: 24px;
     line-height: 1.5;
     color: #fff;
     display: -webkit-box;
