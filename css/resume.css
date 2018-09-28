@@ -63,6 +63,10 @@ h2 {
   color: #007bff;
 }
 
+.subitem {
+  padding-left: 45px;
+}
+
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 600;
   text-transform: uppercase;
