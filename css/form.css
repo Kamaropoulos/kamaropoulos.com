@@ -150,7 +150,7 @@
   }
   
   .container-contact1 {
-    width: 1163px;
+    width: 100%;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -181,7 +181,7 @@
   /*------------------------------------------------------------------
   [  ]*/
   .contact1-form {
-    width: 390px;
+    width: 100%;
   }
   
   .contact1-form-title {

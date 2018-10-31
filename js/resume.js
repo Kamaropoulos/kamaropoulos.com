@@ -46,6 +46,12 @@
     },
     {
       counter: 0,
+      hash: "#learning",
+      contentHash: "#learningTitle",
+      text: "Currently Learning"
+    },
+    {
+      counter: 0,
       hash: "#contact",
       contentHash: "#contactTitle",
       text: "Get in touch"

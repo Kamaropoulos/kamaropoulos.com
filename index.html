@@ -91,6 +91,9 @@
                     <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#learning">Learning</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                 </li>
                 <li class="nav-item">
@@ -262,7 +265,7 @@
                 </div>
                 <div class="resume-item d-flex flex-column flex-md-row mb-5">
                     <div class="resume-content mr-auto">
-                        <h3 class="mb-0 capitalize">RailsPlayground</h3>
+                        <h3 id="railsProjects" class="mb-0 capitalize">RailsPlayground</h3>
                         <div class="subheading mb-3">A collection of projects made while learning Ruby and Ruby on
                             Rails.</div>
                         <div>
@@ -282,8 +285,8 @@
                             <div>
                                 <a href="https://github.com/Kamaropoulos/RailsPlayground/tree/master/Checklist" target="_blank">
                                     <i class="fab fa-github"></i> Project Source Code</a> &nbsp;•&nbsp;
-                                    <a href="https://checklist.kamaropoulos.tk/" target="_blank">
-                                        <i class="fa fa-globe"></i> Project Live Demo</a>                                    
+                                <a href="https://checklist.kamaropoulos.tk/" target="_blank">
+                                    <i class="fa fa-globe"></i> Project Live Demo</a>
                             </div>
                         </div>
                         <div class="resume-date text-md-right">
@@ -383,15 +386,47 @@
             </div>
         </section>
 
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="learning">
+            <div class="my-auto">
+                <h2 id="learningTitle" class="mb-5">Currently Learning</h2>
+
+                <div class="resume-item d-flex flex-column flex-md-row mb-5">
+                    <div class="resume-content mr-auto">
+                        <h3 class="mb-0 capitalize">Flutter and Dart</h3>
+                        <div class="subheading mb-3">Flutter is Google’s mobile app SDK for crafting high-quality
+                            native interfaces on iOS and Android in record time. Flutter works with existing code, is
+                            used by developers and organizations around the world, and is free and open source.</div>
+                        <div>
+                            <a href="https://flutter.io/" target="_blank">
+                                <i class="fa fa-globe"></i> Official Page</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="resume-item d-flex flex-column flex-md-row mb-5">
+                    <div class="resume-content mr-auto">
+                        <h3 class="mb-0 capitalize">Ruby on Rails</h3>
+                        <div class="subheading mb-3">Ruby on Rails is an open-source framework for database-backed web
+                            development in Ruby.</div>
+                        <div>
+                            <a href="https://rubyonrails.org/" target="_blank">
+                                <i class="fa fa-globe"></i> Official Page</a>&nbsp;•&nbsp;
+                            <a class="js-scroll-trigger" href="#railsProjects">
+                                <i class="fa fa-copy"></i> Projects</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+
+
         <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contact">
             <div class="my-auto">
 
                 <div>
                     <div class="container-contact1">
-                        <div class="contact1-pic js-tilt" data-tilt>
-                            <img src="img/img-01.png" alt="IMG">
-                        </div>
-
                         <form action="https://formspree.io/kamaropoulos@outlook.com" method="POST" class="contact1-form validate-form">
                             <span id="contactTitle" class="contact1-form-title">
                                 Get in touch
@@ -426,6 +461,9 @@
                                 </button>
                             </div>
                         </form>
+                        <!-- <div class="contact1-pic js-tilt" data-tilt>
+                            <img src="img/img-01.png" alt="IMG">
+                        </div> -->
                     </div>
                 </div>
 
