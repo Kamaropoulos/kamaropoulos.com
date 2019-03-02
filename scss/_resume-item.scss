@@ -27,6 +27,11 @@ section.resume-section {
   }
 }
 
+@media only screen and (max-width: 550px) {
+  h1 {
+    font-size: 18vw;
+  }
+}
 
 details {
   width: 95%;
