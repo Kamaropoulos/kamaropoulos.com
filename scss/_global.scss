@@ -56,6 +56,61 @@ h2 {
   }
 }
 
+.anim {
+  color: rgb(255, 255, 255);
+  transition: transform 0.5s, color 0.5s; /* Animation */
+  margin: 0 auto;
+  transform: scale(1);
+}
+
+.anim:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.anim-linkedin:hover {
+  a {
+    color: #0077b5;
+  }
+}
+
+.anim-github:hover {
+  a {
+    color: #211f1f;
+  }
+}
+
+.anim-youtube:hover {
+  a {
+    color: #E62117;
+  }
+}
+
+.anim-facebook:hover {
+  a {
+    color: #3B5998;
+  }
+}
+
+.anim-twitter:hover {
+  a {
+    color: #38A1F3;
+  }
+}
+
+.anim-steam:hover {
+  a {
+    color: #808080;
+  }
+}
+
+.anim-instagram:hover {
+  a {
+    color: #C13584;
+    // TODO: Actual Instagram color gradient (not working)
+    // color: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+  }
+}
+
 .list-icons {
   font-size: 3rem;
   .list-inline-item i {
