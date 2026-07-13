@@ -9,8 +9,8 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@300;500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@300;500;600;700;800&amp;family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   * { box-sizing: border-box; }
@@ -23,9 +23,14 @@
   @media (max-width: 1180px) {
     [data-navbar] { display: none !important; }
     [data-breadcrumb] { display: block !important; }
+    [data-navid] { opacity: 1 !important; transform: none !important; pointer-events: auto !important; filter: none !important; }
   }
   @media (max-width: 900px) { [data-resume] { display: none !important; } }
   @media (max-width: 760px) {
+    [data-tl-row] { flex-direction: column !important; gap: 10px !important; padding: 16px 18px; border-radius: 12px; background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); }
+    [data-tl-year] { width: auto !important; text-align: left !important; align-self: flex-start; letter-spacing: .06em; color: #6ea8fe !important; }
+    [data-tl-year] + div { padding-left: 0 !important; border-left: none !important; }
+    [data-exp-item] + [data-exp-item], [data-tl-row] + [data-tl-row] { margin-top: 2px; }
     [data-topbar] { padding-left: 16px !important; padding-right: 16px !important; }
     #top { padding-left: 18px !important; padding-right: 18px !important; }
     [data-composer-dock] { padding-left: 16px !important; padding-right: 16px !important; }
@@ -53,23 +58,23 @@
 </style>
 </helmet>
   <div style="position:relative; min-height:100vh; background:#0c0e14; font-family:'IBM Plex Sans',sans-serif;">
-      <div data-progress style="position:fixed; top:0; left:0; height:2px; width:0%; background:linear-gradient(90deg,#5f83bd,#7f9fd6); z-index:60; box-shadow:0 0 6px rgba(110,168,254,0.3); transition:width .08s linear;"></div>
-      <div data-aurora style="position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0;">
+      <div data-progress="" style="position:fixed; top:0; left:0; height:2px; width:0%; background:linear-gradient(90deg,#5f83bd,#7f9fd6); z-index:60; box-shadow:0 0 6px rgba(110,168,254,0.3); transition:width .08s linear; display:none;"></div>
+      <div data-aurora="" style="position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0;">
         <div style="position:absolute; top:-14%; left:6%; width:46vw; height:46vw; border-radius:50%; background:radial-gradient(circle at center, rgba(96,124,176,0.18), transparent 62%); filter:blur(70px); animation:drift 24s ease-in-out infinite;"></div>
         <div style="position:absolute; top:24%; right:-8%; width:40vw; height:40vw; border-radius:50%; background:radial-gradient(circle at center, rgba(110,168,254,0.24), transparent 62%); filter:blur(80px); animation:drift 30s ease-in-out infinite reverse;"></div>
         <div style="position:absolute; bottom:-16%; left:30%; width:42vw; height:42vw; border-radius:50%; background:radial-gradient(circle at center, rgba(96,124,176,0.14), transparent 62%); filter:blur(90px); animation:drift 36s ease-in-out infinite;"></div>
       </div>
-      <div style="position:absolute; inset:0; pointer-events:none; opacity:0.035; mix-blend-mode:overlay; background-image:url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>&quot;); background-size:180px 180px;"></div>
-      <canvas data-particles style="position:fixed; inset:0; width:100vw; height:100vh; pointer-events:none; z-index:0;"></canvas>
+      <div style="position:absolute; inset:0; pointer-events:none; opacity:0.035; mix-blend-mode:overlay; background-image:url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg'&gt;&lt;filter id='n'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/&gt;&lt;/filter&gt;&lt;rect width='100%25' height='100%25' filter='url(%23n)'/&gt;&lt;/svg&gt;&quot;); background-size:180px 180px;"></div>
+      <canvas data-particles="" style="position:fixed; inset:0; width:100vw; height:100vh; pointer-events:none; z-index:0;"></canvas>
       <div style="position:absolute; inset:0; background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,0.14), transparent 70%); pointer-events:none;"></div>
-      <div data-spotlight style="position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .4s;"></div>
-      <div data-topbar style="position:sticky; top:0; z-index:50; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:16px 40px; background:transparent; border-bottom:1px solid transparent; backdrop-filter:blur(0px); transition:background .35s, border-color .35s, backdrop-filter .35s, padding .35s, box-shadow .35s;">
-          <div data-navid style="justify-self:start; display:flex; align-items:center; gap:12px; flex:none; font-family:'IBM Plex Sans',sans-serif; color:#c7cbd6; opacity:0; transform:translateX(-6px) scale(.94); transform-origin:left center; transition:opacity .4s ease, transform .4s cubic-bezier(.2,.7,.2,1); pointer-events:none;">
+      <div data-spotlight="" style="position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .4s;"></div>
+      <div data-topbar="" style="position:sticky; top:0; z-index:50; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:16px 40px; background:transparent; border-bottom:1px solid transparent; backdrop-filter:blur(0px); transition:background .35s, border-color .35s, backdrop-filter .35s, padding .35s, box-shadow .35s;">
+          <div data-navid="" style="justify-self:start; display:flex; align-items:center; gap:12px; flex:none; font-family:'IBM Plex Sans',sans-serif; color:#c7cbd6; opacity:0; transform:translateX(-6px) scale(.94); transform-origin:left center; transition:opacity .4s ease, transform .4s cubic-bezier(.2,.7,.2,1); pointer-events:none;">
             <div style="position:relative; flex:none;"><img src="assets/profile.jpg" alt="" style="width:38px; height:38px; border-radius:50%; object-fit:cover; border:1px solid rgba(110,168,254,0.5);"><span style="position:absolute; right:-1px; bottom:-1px; width:10px; height:10px; border-radius:50%; background:#5eba8e; border:2px solid #0c0e14;"></span></div>
-            <div style="line-height:1.2;"><div style="font-weight:600; font-size:14px; color:#eef1f8; white-space:nowrap;">Konstantinos Kamaropoulos</div><div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#5eba8e; white-space:nowrap;">résumé agent · online</div></div>
+            <div style="line-height:1.2;"><div style="font-weight:600; font-size:14px; color:#eef1f8; white-space:nowrap;">Konstantinos Kamaropoulos</div><div style="font-family:'JetBrains Mono',monospace; font-size:11px; white-space:nowrap;"><span data-status-online="" style="color:#5eba8e;">profile agent · online</span><span data-status-typing="" style="display:none; color:#6ea8fe;">typing<span data-typing-dots=""></span></span></div></div>
           </div>
-          <nav data-navbar style="position:relative; display:flex; align-items:center; gap:2px; padding:6px; border-radius:999px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); backdrop-filter:blur(10px); font-family:'JetBrains Mono',monospace; font-size:13px; transition:background .3s, border-color .3s, transform .5s cubic-bezier(.2,.75,.2,1); will-change:transform;">
-            <span data-nav-highlight style="position:absolute; top:6px; left:6px; height:calc(100% - 12px); width:0; border-radius:999px; background:rgba(110,168,254,0.16); border:1px solid rgba(110,168,254,0.3); box-shadow:0 0 16px rgba(110,168,254,0.25); transition:transform .35s cubic-bezier(.2,.8,.2,1), width .35s cubic-bezier(.2,.8,.2,1); z-index:0;"></span>
+          <nav data-navbar="" style="position:relative; display:flex; align-items:center; gap:2px; padding:6px; border-radius:999px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); backdrop-filter:blur(10px); font-family:'JetBrains Mono',monospace; font-size:13px; transition:background .3s, border-color .3s, transform .5s cubic-bezier(.2,.75,.2,1); will-change:transform;">
+            <span data-nav-highlight="" style="position:absolute; top:6px; left:6px; height:calc(100% - 12px); width:0; border-radius:999px; background:rgba(110,168,254,0.16); border:1px solid rgba(110,168,254,0.3); box-shadow:0 0 16px rgba(110,168,254,0.25); transition:transform .35s cubic-bezier(.2,.8,.2,1), width .35s cubic-bezier(.2,.8,.2,1); z-index:0;"></span>
             <a data-nav-link="top" href="#top" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#a9c9ff; transition:color .25s;">About</a>
             <a data-nav-link="experience" href="#experience" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#8a90a3; transition:color .25s;">Experience</a>
             <a data-nav-link="education" href="#education" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#8a90a3; transition:color .25s;">Education</a>
@@ -77,9 +82,9 @@
             <a data-nav-link="projects" href="#projects" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#8a90a3; transition:color .25s;">Projects</a>
             <a data-nav-link="contact" href="#contact" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#8a90a3; transition:color .25s;">Contact</a>
           </nav>
-          <div data-breadcrumb style="display:none; grid-column:2; justify-self:center; position:relative; font-family:'JetBrains Mono',monospace; font-size:13px;">
-            <button data-breadcrumb-btn style-hover="background:rgba(255,255,255,0.06);" style="display:inline-flex; align-items:center; gap:9px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.09); color:#c7cbd6; cursor:pointer; transition:background .2s;"><i class="fas fa-comment-dots" style="font-size:12px; color:#6ea8fe;"></i> <span data-breadcrumb-label>About</span> <i class="fas fa-chevron-down" data-breadcrumb-caret style="font-size:10px; color:#8a90a3; transition:transform .25s;"></i></button>
-            <div data-breadcrumb-menu style="position:absolute; top:calc(100% + 8px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:180px; padding:6px; border-radius:12px; background:rgba(16,19,27,0.95); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.09); box-shadow:0 16px 40px rgba(0,0,0,0.5); opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s cubic-bezier(.2,.7,.2,1); z-index:10;">
+          <div data-breadcrumb="" style="display:none; grid-column:3; justify-self:end; position:relative; font-family:'JetBrains Mono',monospace; font-size:13px;">
+            <button data-breadcrumb-btn="" style-hover="background:rgba(255,255,255,0.06);" style="display:inline-flex; align-items:center; gap:9px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.09); color:#c7cbd6; cursor:pointer; transition:background .2s;"><i class="fas fa-comment-dots" style="font-size:12px; color:#6ea8fe;"></i> <span data-breadcrumb-label="">About</span> <i class="fas fa-chevron-down" data-breadcrumb-caret="" style="font-size:10px; color:#8a90a3; transition:transform .25s;"></i></button>
+            <div data-breadcrumb-menu="" style="position:absolute; top:calc(100% + 8px); right:0; transform:translateY(-6px); min-width:180px; padding:6px; border-radius:12px; background:rgba(16,19,27,0.95); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.09); box-shadow:0 16px 40px rgba(0,0,0,0.5); opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s cubic-bezier(.2,.7,.2,1); z-index:10;">
               <a data-crumb="top" href="#top" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">About</a>
               <a data-crumb="experience" href="#experience" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">Experience</a>
               <a data-crumb="education" href="#education" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">Education</a>
@@ -89,23 +94,28 @@
               <a data-crumb="contact" href="#contact" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">Contact</a>
             </div>
           </div>
-          <a data-resume href="assets/resume.pdf" target="_blank" style-hover="background:rgba(110,168,254,0.2); transform:translateY(-2px);" style="justify-self:end; flex:none; display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border-radius:999px; background:rgba(110,168,254,0.1); border:1px solid rgba(110,168,254,0.3); color:#a9c9ff; font-family:'JetBrains Mono',monospace; font-size:12px; transition:all .2s;"><i class="fas fa-file-pdf"></i> Résumé</a>
+          <a data-resume="" href="assets/resume.pdf" target="_blank" style-hover="background:rgba(110,168,254,0.2); transform:translateY(-2px);" style="justify-self:end; flex:none; display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border-radius:999px; background:rgba(110,168,254,0.1); border:1px solid rgba(110,168,254,0.3); color:#a9c9ff; font-family:'JetBrains Mono',monospace; font-size:12px; transition:all .2s;"><i class="fas fa-file-pdf"></i> Résumé</a>
         </div>
       <div id="top" style="position:relative; z-index:1; padding:8px 64px 40px;">
 
         <!-- HERO CHAT -->
         <div style="max-width:820px; margin:32px auto 0;">
-          <div data-hero-intro style="text-align:center; margin-bottom:36px; transform-origin:top center; will-change:opacity, transform;">
-            <div data-reveal style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+          <div data-hero-intro="" style="text-align:center; margin-bottom:36px; transform-origin:top center; will-change:opacity, transform;">
+            <div data-reveal="" style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
             <div style="position:relative; width:104px; height:104px; margin:0 auto 18px;">
               <div style="position:absolute; inset:-4px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%); opacity:.9;"></div>
               <div style="position:absolute; inset:-4px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%); filter:blur(12px); opacity:.16;"></div>
               <img src="assets/profile.jpg" alt="Konstantinos Kamaropoulos" style="position:absolute; inset:4px; width:96px; height:96px; border-radius:50%; object-fit:cover; border:3px solid #0c0e14;">
             </div>
             </div>
-            <h1 data-reveal style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); margin:0; font-family:'Saira Extra Condensed',sans-serif; font-weight:800; font-size:64px; line-height:0.92; letter-spacing:-0.01em; text-transform:uppercase; color:#f4f6fb;">Konstantinos <span style="color:#8fb0ec;">Kamaropoulos</span></h1>
-            <p data-reveal style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); margin:10px auto 0; max-width:440px; font-size:15px; color:#8a90a3; line-height:1.6;">You're chatting with my personal résumé agent. Ask about my work, or scroll to read the conversation — then leave me a message at the end.</p>
-            <div data-reveal style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); display:flex; align-items:center; gap:14px; max-width:340px; margin:28px auto 0;">
+            <h1 data-reveal="" style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); margin:0; font-family:'Saira Extra Condensed',sans-serif; font-weight:800; font-size:64px; line-height:0.92; letter-spacing:-0.01em; text-transform:uppercase; color:#f4f6fb;">Konstantinos <span style="color:#8fb0ec;">Kamaropoulos</span></h1>
+            <div data-reveal="" style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:16px auto 0;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.03em; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#c7cbd6;">Computer Generalist</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.03em; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#c7cbd6;">Researcher</span>
+              <span data-decrypt="Ethical Hacker" style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.03em; padding:5px 12px; border-radius:999px; background:rgba(94,186,142,0.09); border:1px solid rgba(94,186,142,0.3); color:#5eba8e; cursor:crosshair;">Ethical Hacker</span>
+            </div>
+            <p data-reveal="" style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); margin:10px auto 0; max-width:440px; font-size:15px; color:#8a90a3; line-height:1.6;">You're chatting with my personal résumé agent. Ask about my work, or scroll to read the conversation — then leave me a message at the end.</p>
+            <div data-reveal="" style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); display:flex; align-items:center; gap:14px; max-width:340px; margin:28px auto 0;">
               <span style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></span>
               <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; color:#5a6072;">TODAY</span>
               <span style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></span>
@@ -113,33 +123,28 @@
           </div>
 
           <!-- user prompt -->
-          <div data-reveal style="opacity:0; transform:translateY(24px); transition:all .8s cubic-bezier(.2,.7,.2,1); display:flex; justify-content:flex-end; margin-bottom:18px;">
+          <div data-reveal="" style="opacity:0; transform:translateY(24px); transition:all .8s cubic-bezier(.2,.7,.2,1); display:flex; justify-content:flex-end; margin-bottom:18px;">
             <div style="max-width:70%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">Who is Konstantinos Kamaropoulos?</div>
           </div>
           <!-- assistant answer -->
-          <div id="hero-answer" data-reveal style="opacity:0; transform:translateY(24px); transition:all .8s cubic-bezier(.2,.7,.2,1); display:flex; gap:14px; align-items:flex-start;">
+          <div id="hero-answer" data-reveal="" style="opacity:0; transform:translateY(24px); transition:all .8s cubic-bezier(.2,.7,.2,1); display:flex; gap:14px; align-items:flex-start;">
             <div style="position:relative; width:40px; height:40px; flex:none;">
               <div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div>
               <img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;">
             </div>
             <div style="flex:1; padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05);">
-              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
-                <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:5px 11px; border-radius:999px; background:rgba(110,168,254,0.1); border:1px solid rgba(110,168,254,0.25); color:#a9c9ff;">Computer Generalist</span>
-                <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:5px 11px; border-radius:999px; background:rgba(110,168,254,0.1); border:1px solid rgba(110,168,254,0.25); color:#a9c9ff;">Researcher</span>
-                <span data-decrypt="Ethical Hacker" style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:5px 11px; border-radius:999px; background:rgba(94,186,142,0.1); border:1px solid rgba(94,186,142,0.35); color:#5eba8e; cursor:crosshair; text-shadow:0 0 7px rgba(94,186,142,0.3);">Ethical Hacker</span>
-              </div>
-              <div data-thinking style="display:flex; gap:5px; align-items:center; height:20px; margin:2px 0 10px;">
+              <div data-thinking="" style="display:flex; gap:5px; align-items:center; height:20px; margin:2px 0 10px;">
                 <span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span>
                 <span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span>
                 <span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span>
               </div>
-              <p data-stream data-text="Self-taught Software Engineer since the age of 8, based in Athens, Greece. Passionate about technology, science and innovation — and how we can use them to make this world (and others) a better place to live in. Building games, tools and systems across the full stack." style="margin:0; font-size:16px; line-height:1.75; color:#c1c7d6;"></p>
-              <div style="margin-top:16px; display:flex; gap:10px;">
+              <p data-stream="" data-text="Self-taught Software Engineer since the age of 8, based in Athens, Greece. Passionate about technology, science and innovation — and how we can use them to make this world (and others) a better place to live in. Building games, tools and systems across the full stack." style="margin:0; font-size:16px; line-height:1.75; color:#c1c7d6;"></p>
+              <div data-hero-cta style="display:none; opacity:0; transform:translateY(8px); transition:opacity .5s ease, transform .5s cubic-bezier(.2,.7,.2,1); margin-top:16px; gap:10px;">
                 <a href="mailto:k@kamaropoulos.com" style-hover="background:#8fbcff; transform:translateY(-2px); box-shadow:0 6px 20px rgba(110,168,254,0.35);" style="display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border-radius:10px; background:#6ea8fe; color:#06101f; font-family:'JetBrains Mono',monospace; font-weight:600; font-size:12px; transition:all .2s;"><i class="fas fa-envelope"></i> Contact</a>
                 <a href="https://github.com/Kamaropoulos" target="_blank" style-hover="background:rgba(255,255,255,0.1); transform:translateY(-2px);" style="display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border-radius:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:#c7cbd6; font-family:'JetBrains Mono',monospace; font-size:12px; transition:all .2s;"><i class="fab fa-github"></i> GitHub</a>
                 <a href="https://www.linkedin.com/in/kamaropoulos/" target="_blank" style-hover="background:rgba(255,255,255,0.1); transform:translateY(-2px);" style="display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border-radius:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:#c7cbd6; font-family:'JetBrains Mono',monospace; font-size:12px; transition:all .2s;"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
               </div>
-              <div style="margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06); display:flex; flex-wrap:wrap; gap:8px;">
+              <div data-hero-cta style="display:none; opacity:0; transform:translateY(8px); transition:opacity .5s ease, transform .5s cubic-bezier(.2,.7,.2,1); margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06); flex-wrap:wrap; gap:8px;">
                 <a href="#projects" style-hover="background:rgba(110,168,254,0.16); color:#a9c9ff;" style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:6px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#8a90a3; transition:all .2s;">→ show me his projects</a>
                 <a href="#skills" style-hover="background:rgba(110,168,254,0.16); color:#a9c9ff;" style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:6px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#8a90a3; transition:all .2s;">→ what does he know</a>
                 <a href="#contact" style-hover="background:rgba(110,168,254,0.16); color:#a9c9ff;" style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:6px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#8a90a3; transition:all .2s;">→ how do I reach him</a>
@@ -149,24 +154,24 @@
         </div>
         <div style="max-width:820px; margin:0 auto;">
           <!-- EXPERIENCE (dummy placeholder — replace with real history) -->
-          <section id="experience" data-qa style="padding-top:64px; scroll-margin-top:90px;">
-            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+          <section id="experience" data-qa="" style="padding-top:64px; scroll-margin-top:90px;">
+            <div data-q="" style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
               <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">Where has he worked?</div>
             </div>
-            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+            <div data-a="" style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
               <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
               <div style="flex:1; min-width:0;">
-                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
-                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                <div data-a-think="" style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body="" style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
                   <div style="padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05);">
-                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;"><span data-stream-line style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#c7cbd6;">Here's my work history:</span></div>
-                    <div data-exp-group style="margin-bottom:8px;">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;"><span data-stream-line="" style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#c7cbd6;">Here's my work history:</span></div>
+                    <div data-exp-group="" style="margin-bottom:8px;">
                       <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;"><span style="display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:8px; background:rgba(110,168,254,0.12); border:1px solid rgba(110,168,254,0.25); color:#6ea8fe; font-size:11px;"><i class="fas fa-briefcase"></i></span><span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6ea8fe; font-weight:600;">Professional</span><span style="flex:1; height:1px; background:rgba(110,168,254,0.15);"></span></div>
                       <div style="display:flex; flex-direction:column; gap:12px;">
-                        <div data-exp-item style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2025 – 2026</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Co-Founder &amp; CTO</h3><div style="color:#6ea8fe; font-size:14px; margin:4px 0 8px;">SK IT Consulting Services L.P.</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">An IT consulting agency delivering tailored technology solutions to diverse businesses. Responsibilities ranged from day-to-day operations, client communications and relationship management to solution architecture for Microsoft 365 solutions, compute and networking infrastructure projects, and overseeing software development projects.</p></div></div>
-                        <div data-exp-item style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2021 – 2025</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">CTO &amp; Tech Lead</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:8px;">Divimah S.A.</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">A fast-paced startup project built entirely from the ground up. Responsibilities ranged from designing the full system architecture and managing a development team to hands-on coding and implementing core features to bring the product to life.</p></div></div>
-                        <div data-exp-item style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2020 – 2021</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Software Engineer</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:8px;">nilware.io</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">A cross-disciplinary team with expertise spanning from Assembly and Compilers, to Robotics and Embedded Systems, to Web, AI and Blockchain, and everything in between.</p></div></div>
-                        <div data-exp-item style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2017 – 2020</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Software Engineer</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:8px;">Gran Skrea Online</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">An MMORPG developed by an international indie game-development team, available in Early Access on Steam. Responsibilities ranged from network programming, backend, game logic and web development to server and database administration and operations.</p></div></div>
+                        <div data-exp-item="" data-tl-row style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;" data-tl-year="">2025 – 2026</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Co-Founder &amp; CTO</h3><div style="color:#6ea8fe; font-size:14px; margin:4px 0 8px;">SK IT Consulting Services L.P.</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">An IT consulting agency delivering tailored technology solutions to diverse businesses. Responsibilities ranged from day-to-day operations, client communications and relationship management to solution architecture for Microsoft 365 solutions, compute and networking infrastructure projects, and overseeing software development projects.</p></div></div>
+                        <div data-exp-item="" data-tl-row style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;" data-tl-year="">2021 – 2025</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">CTO &amp; Tech Lead</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:8px;">Divimah S.A.</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">A fast-paced startup project built entirely from the ground up. Responsibilities ranged from designing the full system architecture and managing a development team to hands-on coding and implementing core features to bring the product to life.</p></div></div>
+                        <div data-exp-item="" data-tl-row style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;" data-tl-year="">2020 – 2021</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Software Engineer</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:8px;">nilware.io</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">A cross-disciplinary team with expertise spanning from Assembly and Compilers, to Robotics and Embedded Systems, to Web, AI and Blockchain, and everything in between.</p></div></div>
+                        <div data-exp-item="" data-tl-row style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;" data-tl-year="">2017 – 2020</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Software Engineer</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:8px;">Gran Skrea Online</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">An MMORPG developed by an international indie game-development team, available in Early Access on Steam. Responsibilities ranged from network programming, backend, game logic and web development to server and database administration and operations.</p></div></div>
                       </div>
                     </div>
                   </div>
@@ -176,19 +181,19 @@
           </section>
 
           <!-- EDUCATION -->
-          <section id="education" data-qa style="padding-top:56px; scroll-margin-top:90px;">
-            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+          <section id="education" data-qa="" style="padding-top:56px; scroll-margin-top:90px;">
+            <div data-q="" style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
               <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">Where did he study?</div>
             </div>
-            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+            <div data-a="" style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
               <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
               <div style="flex:1; min-width:0;">
-                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
-                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                <div data-a-think="" style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body="" style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
                   <div style="padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05); display:flex; flex-direction:column; gap:14px;">
-                    <div style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2017 – 2018</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Udacity &amp; Google</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:6px;">Mobile Web Specialist Nanodegree</div><p style="margin:0; color:#9aa0b3; font-size:14px;">Google Developer Challenge Scholarship · <a href="https://github.com/Kamaropoulos/Udacity-MWS-Nanodegree-Project" target="_blank">Source</a> · <a href="https://mws.kamaropoulos.com/" target="_blank">Demo</a></p></div></div>
-                    <div style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2015 – Present</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">University of West Attica</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:6px;">B.Sc. Informatics &amp; Computer Engineering</div></div></div>
-                    <div style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2012 – 2015</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">1st Vocational School of Nea Filadelfeia</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:6px;">Computer &amp; Computer Networks Engineering</div><p style="margin:0; color:#9aa0b3; font-size:14px;">Score 19.6 / 20</p></div></div>
+                    <div data-tl-row style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;" data-tl-year="">2017 – 2018</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Udacity &amp; Google</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:6px;">Mobile Web Specialist Nanodegree</div><p style="margin:0; color:#9aa0b3; font-size:14px;">Google Developer Challenge Scholarship · <a href="https://github.com/Kamaropoulos/Udacity-MWS-Nanodegree-Project" target="_blank">Source</a> · <a href="https://mws.kamaropoulos.com/" target="_blank">Demo</a></p></div></div>
+                    <div data-tl-row style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;" data-tl-year="">2015 – Present</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">University of West Attica</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:6px;">B.Sc. Informatics &amp; Computer Engineering</div></div></div>
+                    <div data-tl-row style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;" data-tl-year="">2012 – 2015</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">1st Vocational School of Nea Filadelfeia</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:6px;">Computer &amp; Computer Networks Engineering</div><p style="margin:0; color:#9aa0b3; font-size:14px;">Score 19.6 / 20</p></div></div>
                   </div>
                 </div>
               </div>
@@ -196,28 +201,28 @@
           </section>
 
           <!-- SKILLS -->
-          <section id="skills" data-qa style="padding-top:56px; scroll-margin-top:90px;">
-            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+          <section id="skills" data-qa="" style="padding-top:56px; scroll-margin-top:90px;">
+            <div data-q="" style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
               <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">What technologies does he work with?</div>
             </div>
-            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+            <div data-a="" style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
               <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
               <div style="flex:1; min-width:0;">
-                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
-                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                <div data-a-think="" style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body="" style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
                   <div style="padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05); display:flex; flex-direction:column; gap:12px;">
-                    <div data-stream-line style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#c7cbd6; margin-bottom:2px;">I work across the full stack — here's my toolkit, with core strengths highlighted:</div>
-                    <div data-skill-card style="padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(110,168,254,0.05), rgba(110,168,254,0.01)); border:1px solid rgba(110,168,254,0.14);">
+                    <div data-stream-line="" style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#c7cbd6; margin-bottom:2px;">I work across the full stack — here's my toolkit, with core strengths highlighted:</div>
+                    <div data-skill-card="" style="padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(110,168,254,0.05), rgba(110,168,254,0.01)); border:1px solid rgba(110,168,254,0.14);">
                       <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;"><span style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9px; background:rgba(110,168,254,0.14); border:1px solid rgba(110,168,254,0.3); color:#6ea8fe; font-size:14px;"><i class="fas fa-code"></i></span><span style="font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:21px; letter-spacing:.01em; color:#eef1f8; text-transform:uppercase;">Programming Languages</span><span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; padding:4px 10px; border-radius:999px; background:rgba(110,168,254,0.1); border:1px solid rgba(110,168,254,0.22); color:#6ea8fe;">{{ plang.length }}</span></div>
-                      <div style="display:flex; flex-wrap:wrap; gap:9px; align-items:center;"><sc-for list="{{ plang }}" as="s" hint-placeholder-count="12"><span data-skill-chip style-hover="background:rgba(110,168,254,0.18); border-color:rgba(110,168,254,0.5); transform:translateY(-2px) scale(1.04); color:#eef1f8;" style="{{ s.style }}">{{ s.text }}</span></sc-for></div>
+                      <div style="display:flex; flex-wrap:wrap; gap:9px; align-items:center;"><sc-for list="{{ plang }}" as="s" hint-placeholder-count="12"><span data-skill-chip="" style-hover="background:rgba(110,168,254,0.18); border-color:rgba(110,168,254,0.5); transform:translateY(-2px) scale(1.04); color:#eef1f8;" style="{{ s.style }}">{{ s.text }}</span></sc-for></div>
                     </div>
-                    <div data-skill-card style="padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(148,163,184,0.05), rgba(148,163,184,0.01)); border:1px solid rgba(148,163,184,0.16);">
+                    <div data-skill-card="" style="padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(148,163,184,0.05), rgba(148,163,184,0.01)); border:1px solid rgba(148,163,184,0.16);">
                       <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;"><span style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9px; background:rgba(148,163,184,0.14); border:1px solid rgba(148,163,184,0.3); color:#c3ccdb; font-size:14px;"><i class="fas fa-toolbox"></i></span><span style="font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:21px; letter-spacing:.01em; color:#eef1f8; text-transform:uppercase;">Tools &amp; Technologies</span><span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; padding:4px 10px; border-radius:999px; background:rgba(148,163,184,0.1); border:1px solid rgba(148,163,184,0.24); color:#c3ccdb;">{{ tools.length }}</span></div>
-                      <div style="display:flex; flex-wrap:wrap; gap:9px; align-items:center;"><sc-for list="{{ tools }}" as="s" hint-placeholder-count="12"><span data-skill-chip style-hover="background:rgba(148,163,184,0.18); border-color:rgba(148,163,184,0.5); transform:translateY(-2px) scale(1.04); color:#eef1f8;" style="{{ s.style }}">{{ s.text }}</span></sc-for></div>
+                      <div style="display:flex; flex-wrap:wrap; gap:9px; align-items:center;"><sc-for list="{{ tools }}" as="s" hint-placeholder-count="12"><span data-skill-chip="" style-hover="background:rgba(148,163,184,0.18); border-color:rgba(148,163,184,0.5); transform:translateY(-2px) scale(1.04); color:#eef1f8;" style="{{ s.style }}">{{ s.text }}</span></sc-for></div>
                     </div>
-                    <div data-skill-card style="padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.008)); border:1px solid rgba(255,255,255,0.1);">
+                    <div data-skill-card="" style="padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.008)); border:1px solid rgba(255,255,255,0.1);">
                       <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;"><span style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.16); color:#c7cbd6; font-size:14px;"><i class="fas fa-layer-group"></i></span><span style="font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:21px; letter-spacing:.01em; color:#eef1f8; text-transform:uppercase;">Industry Knowledge</span><span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; padding:4px 10px; border-radius:999px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); color:#8a90a3;">{{ industry.length }}</span></div>
-                      <div style="display:flex; flex-wrap:wrap; gap:9px; align-items:center;"><sc-for list="{{ industry }}" as="s" hint-placeholder-count="10"><span data-skill-chip style-hover="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.3); transform:translateY(-2px) scale(1.04); color:#eef1f8;" style="{{ s.style }}">{{ s.text }}</span></sc-for></div>
+                      <div style="display:flex; flex-wrap:wrap; gap:9px; align-items:center;"><sc-for list="{{ industry }}" as="s" hint-placeholder-count="10"><span data-skill-chip="" style-hover="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.3); transform:translateY(-2px) scale(1.04); color:#eef1f8;" style="{{ s.style }}">{{ s.text }}</span></sc-for></div>
                     </div>
                   </div>
                 </div>
@@ -226,17 +231,17 @@
           </section>
 
           <!-- PROJECTS -->
-          <section id="projects" data-qa style="padding-top:56px; scroll-margin-top:90px;">
-            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+          <section id="projects" data-qa="" style="padding-top:56px; scroll-margin-top:90px;">
+            <div data-q="" style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
               <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">What has he built?</div>
             </div>
-            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+            <div data-a="" style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
               <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
               <div style="flex:1; min-width:0;">
-                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
-                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                <div data-a-think="" style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body="" style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
                   <div style="padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05);">
-                    <div data-stream-line style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#c7cbd6; margin-bottom:16px;">A selection of things I've shipped:</div>
+                    <div data-stream-line="" style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#c7cbd6; margin-bottom:16px;">A selection of things I've shipped:</div>
             <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.45); box-shadow:0 18px 40px rgba(0,0,0,0.45);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; position:relative; margin-bottom:16px; border-radius:14px; overflow:hidden; background:linear-gradient(180deg, rgba(110,168,254,0.08), rgba(110,168,254,0.02)); border:1px solid rgba(110,168,254,0.3);">
               <div style="display:flex; align-items:center; gap:6px; padding:11px 16px; background:rgba(110,168,254,0.06); border-bottom:1px solid rgba(110,168,254,0.16);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">gran-skrea-online</span><span style="margin-left:auto; display:inline-flex; align-items:center; gap:5px; font-family:'JetBrains Mono',monospace; font-size:10px; padding:3px 9px; border-radius:999px; background:rgba(110,168,254,0.14); border:1px solid rgba(110,168,254,0.3); color:#a9c9ff;"><i class="fas fa-thumbtack" style="font-size:9px;"></i> FEATURED</span></div>
               <div style="padding:22px;">
@@ -250,7 +255,7 @@
                 <div style="display:flex; gap:16px; font-family:'JetBrains Mono',monospace; font-size:13px;"><a href="https://store.steampowered.com/app/595110/Gran_Skrea_Online/" target="_blank"><i class="fab fa-steam"></i> View on Steam</a><a href="https://granskreaonline.com" target="_blank"><i class="fas fa-globe"></i> Website</a></div>
               </div>
             </div>
-            <div data-grid2 style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+            <div data-grid2="" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
               <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">encrypt-every-word</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">A Twitter bot with plans to tweet every English word in encrypted form.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://twitter.com/CipherEveryword" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://encrypteveryword.kamaropoulos.com" target="_blank"><i class="fas fa-globe"></i> Site</a></div></div></div>
               <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">rails-playground</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">Projects made while learning Ruby on Rails — incl. Checklist &amp; SimpleBlog.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://github.com/Kamaropoulos/RailsPlayground" target="_blank"><i class="fab fa-github"></i> Source</a><a href="https://checklist.kamaropoulos.com/" target="_blank"><i class="fas fa-globe"></i> Demo</a></div></div></div>
               <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">goctapus</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">A REST API server built with Go and Echo.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://github.com/Kamaropoulos/goctapus" target="_blank"><i class="fab fa-github"></i> Source</a></div></div></div>
@@ -268,18 +273,18 @@
           </section>
 
           <!-- LEARNING -->
-          <section id="learning" data-qa style="padding-top:56px; scroll-margin-top:90px;">
-            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+          <section id="learning" data-qa="" style="padding-top:56px; scroll-margin-top:90px;">
+            <div data-q="" style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
               <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">What is he learning right now?</div>
             </div>
-            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+            <div data-a="" style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
               <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
               <div style="flex:1; min-width:0;">
-                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
-                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                <div data-a-think="" style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body="" style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
                   <div style="padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05);">
                     <blockquote style="margin:0 0 18px; padding-left:20px; border-left:3px solid rgba(110,168,254,0.4);"><p style="margin:0; font-size:18px; font-style:italic; color:#c7cbd6;">"Life is about learning; when you stop learning, you die."</p><footer style="margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:13px; color:#5a6072;">— Tom Clancy</footer></blockquote>
-                    <div data-grid2 style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                    <div data-grid2="" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
                       <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4);" style="transition:transform .3s, border-color .3s; padding:20px; border-radius:12px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><h3 style="margin:0 0 6px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:23px; color:#eef1f8;">Flutter &amp; Dart</h3><p style="margin:0 0 10px; color:#9aa0b3; font-size:14px; line-height:1.6;">Google's SDK for crafting high-quality native interfaces on iOS &amp; Android.</p><div style="font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://flutter.io/" target="_blank"><i class="fas fa-globe"></i> Official</a></div></div>
                       <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4);" style="transition:transform .3s, border-color .3s; padding:20px; border-radius:12px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><h3 style="margin:0 0 6px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:23px; color:#eef1f8;">Ruby on Rails</h3><p style="margin:0 0 10px; color:#9aa0b3; font-size:14px; line-height:1.6;">An open-source framework for database-backed web development in Ruby.</p><div style="font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://rubyonrails.org/" target="_blank"><i class="fas fa-globe"></i> Official</a></div></div>
                     </div>
@@ -290,21 +295,21 @@
           </section>
 
           <!-- CONTACT -->
-          <section id="contact" data-qa style="padding-top:56px; scroll-margin-top:90px;">
-            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+          <section id="contact" data-qa="" style="padding-top:56px; scroll-margin-top:90px;">
+            <div data-q="" style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
               <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">How can I get in touch?</div>
             </div>
-            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+            <div data-a="" style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
               <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
               <div style="flex:1; min-width:0;">
-                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
-                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                <div data-a-think="" style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body="" style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
                   <div style="padding:26px 24px; border-radius:4px 16px 16px 16px; background:linear-gradient(135deg, rgba(110,168,254,0.07), rgba(110,168,254,0.02)); border:1px solid rgba(110,168,254,0.22);">
                     <h2 style="margin:0 0 10px; font-family:'Saira Extra Condensed',sans-serif; font-weight:700; font-size:44px; line-height:1; color:#f4f6fb; text-transform:uppercase;">Let's build something</h2>
                     <p style="margin:0 0 18px; max-width:440px; color:#9aa0b3; font-size:15px; line-height:1.6;">Have a project, a question, or just want to say hi? My inbox is always open.</p>
                     <a href="assets/resume.pdf" target="_blank" style-hover="border-color:rgba(110,168,254,0.45); background:rgba(255,255,255,0.05);" style="display:flex; align-items:center; gap:14px; max-width:360px; margin-bottom:18px; padding:14px 16px; border-radius:12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); transition:all .2s;"><span style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; flex:none; border-radius:10px; background:rgba(110,168,254,0.14); border:1px solid rgba(110,168,254,0.28); color:#a9c9ff; font-size:17px;"><i class="fas fa-file-pdf"></i></span><span style="flex:1; min-width:0;"><span style="display:block; font-size:14px; color:#eef1f8; font-weight:600;">Konstantinos_Kamaropoulos_CV.pdf</span><span style="display:block; font-family:'JetBrains Mono',monospace; font-size:11px; color:#5a6072;">Résumé · PDF · tap to download</span></span><span style="flex:none; color:#8a90a3; font-size:15px;"><i class="fas fa-download"></i></span></a>
                     <div style="display:flex; flex-wrap:wrap; gap:12px;">
-                      <button data-copy-email style-hover="background:#8fbcff; transform:translateY(-3px); box-shadow:0 10px 28px rgba(110,168,254,0.4);" style="display:inline-flex; align-items:center; gap:10px; padding:13px 22px; border-radius:12px; border:none; cursor:pointer; background:#6ea8fe; color:#06101f; font-family:'JetBrains Mono',monospace; font-weight:600; font-size:14px; transition:all .25s;"><i class="fas fa-copy"></i> <span data-copy-label>Copy email</span></button>
+                      <button data-copy-email="" style-hover="background:#8fbcff; transform:translateY(-3px); box-shadow:0 10px 28px rgba(110,168,254,0.4);" style="display:inline-flex; align-items:center; gap:10px; padding:13px 22px; border-radius:12px; border:none; cursor:pointer; background:#6ea8fe; color:#06101f; font-family:'JetBrains Mono',monospace; font-weight:600; font-size:14px; transition:all .25s;"><i class="fas fa-copy"></i> <span data-copy-label="">Copy email</span></button>
                       <a href="mailto:k@kamaropoulos.com" style-hover="background:rgba(255,255,255,0.12); transform:translateY(-3px);" style="display:inline-flex; align-items:center; gap:10px; padding:13px 22px; border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:#c7cbd6; font-family:'JetBrains Mono',monospace; font-weight:500; font-size:14px; transition:all .25s;"><i class="fas fa-envelope"></i> Email me</a>
                       <a href="https://blog.kamaropoulos.com" target="_blank" style-hover="background:rgba(255,255,255,0.12); transform:translateY(-3px);" style="display:inline-flex; align-items:center; gap:10px; padding:13px 22px; border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:#c7cbd6; font-family:'JetBrains Mono',monospace; font-weight:500; font-size:14px; transition:all .25s;"><i class="fas fa-external-link-alt"></i> Blog</a>
                     </div>
@@ -317,19 +322,14 @@
 
           <!-- REPLY COMPOSER -->
           <div style="padding-top:56px; padding-bottom:150px;">
-            <div style="display:flex; align-items:center; gap:14px; max-width:340px; margin:0 auto 24px;">
-              <span style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></span>
-              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; color:#5a6072;">YOUR TURN</span>
-              <span style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></span>
-            </div>
             <div id="reply-thread" style="display:flex; flex-direction:column; gap:18px;"></div>
           </div>
         </div>
       </div>
       <!-- pinned composer dock -->
-      <div data-composer-dock style="position:fixed; left:0; right:0; bottom:0; z-index:55; padding:28px 64px 18px; background:linear-gradient(to top, #0c0e14 62%, rgba(6,6,16,0)); pointer-events:none;">
+      <div data-composer-dock="" style="position:fixed; left:0; right:0; bottom:0; z-index:55; padding:28px 64px 18px; background:linear-gradient(to top, #0c0e14 62%, rgba(6,6,16,0)); pointer-events:none;">
         <div style="max-width:820px; margin:0 auto; pointer-events:auto;">
-          <div data-composer style="display:flex; align-items:flex-end; gap:10px; padding:10px 10px 10px 18px; border-radius:20px; background:rgba(20,20,32,0.9); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 32px rgba(0,0,0,0.45); transition:border-color .25s, box-shadow .25s;">
+          <div data-composer="" style="display:flex; align-items:flex-end; gap:10px; padding:10px 10px 10px 18px; border-radius:20px; background:rgba(20,20,32,0.9); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 32px rgba(0,0,0,0.45); transition:border-color .25s, box-shadow .25s;">
             <textarea id="reply-input" rows="1" placeholder="Write a message to Konstantinos…" style="flex:1; resize:none; max-height:160px; background:transparent; border:none; outline:none; color:#eef1f8; font-family:'IBM Plex Sans',sans-serif; font-size:15px; line-height:1.5; padding:8px 0;"></textarea>
             <button id="reply-send" style-hover="background:#8fbcff; transform:translateY(-1px);" style="flex:none; display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; border:none; cursor:pointer; background:#6ea8fe; color:#06101f; font-size:16px; transition:all .2s;"><i class="fas fa-arrow-up"></i></button>
           </div>
@@ -338,7 +338,7 @@
       </div>
   </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showParticles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Background&quot;},&quot;particleDensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.4,&quot;max&quot;:2,&quot;step&quot;:0.2,&quot;unit&quot;:&quot;×&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Background&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;showParticles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Background&quot;},&quot;particleDensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.4,&quot;max&quot;:2,&quot;step&quot;:0.2,&quot;unit&quot;:&quot;×&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Background&quot;},&quot;profileAnim&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;slide-hero&quot;,&quot;pop&quot;,&quot;blur&quot;,&quot;slide-left&quot;,&quot;typewriter&quot;],&quot;default&quot;:&quot;slide-left&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Navbar&quot;}}">
 class Component extends DCLogic {
   renderVals() {
     const mk = (arr, accent, glow) => {
@@ -392,6 +392,7 @@ class Component extends DCLogic {
       this.prepChips();
       this.initChrome();
       this.initContactActions();
+      this.bindNavSkip();
       this.initChat();
       this.initComposer();
     }, 60);
@@ -460,7 +461,7 @@ class Component extends DCLogic {
             i += 2;
             span.textContent = full.slice(0, i);
             if (i < full.length) setTimeout(step, 16);
-            else { cur.style.animation = 'blink 1s step-end infinite'; if (el.closest('#top')) this._heroStreamDone = true; }
+            else { cur.style.animation = 'blink 1s step-end infinite'; if (el.closest('#top')) { this._heroStreamDone = true; document.querySelectorAll('[data-hero-cta]').forEach((cta, i) => setTimeout(() => { cta.style.display = 'flex'; cta.style.opacity = '1'; cta.style.transform = 'none'; }, 250 + i * 160)); } }
           };
           step();
         };
@@ -625,8 +626,9 @@ class Component extends DCLogic {
         setTimeout(resolve, Math.max(400, extra));
       };
       const revealBody = () => {
+        this.setStatus(false);
         if (think) think.style.display = 'none';
-        if (body) { body.style.opacity = '1'; body.style.transform = 'none'; }
+        if (body) { body.style.display = ''; body.style.opacity = '1'; body.style.transform = 'none'; }
         if (lead) this.streamWords(lead).then(finish);
         else finish();
       };
@@ -635,7 +637,7 @@ class Component extends DCLogic {
         this.stampUser(q);
         const pause = 360;
         const think2 = this._reducedMotion ? 0 : 900 + Math.random() * 650;
-        setTimeout(() => { if (a) { a.style.opacity = '1'; a.style.transform = 'none'; } }, pause);
+        setTimeout(() => { if (a) { a.style.opacity = '1'; a.style.transform = 'none'; } this.setStatus(true); }, pause);
         setTimeout(revealBody, pause + think2);
       };
       if (qbubble) this.typeInto(qbubble, qbubble.dataset.qtext, 34).then(afterType);
@@ -682,6 +684,20 @@ class Component extends DCLogic {
   }
 
   showNudge(on) { if (this._nudge) this._nudge.style.display = on ? 'flex' : 'none'; }
+  setStatus(typing) {
+    const online = document.querySelector('[data-status-online]');
+    const typ = document.querySelector('[data-status-typing]');
+    if (!online || !typ) return;
+    online.style.display = typing ? 'none' : '';
+    typ.style.display = typing ? '' : 'none';
+    if (typing) {
+      const dots = typ.querySelector('[data-typing-dots]');
+      if (dots && !this._dotTimer) {
+        let n = 0;
+        this._dotTimer = setInterval(() => { n = (n + 1) % 4; dots.textContent = '.'.repeat(n); }, 350);
+      }
+    } else if (this._dotTimer) { clearInterval(this._dotTimer); this._dotTimer = null; }
+  }
   showSkip(on) { if (this._skipBtn) this._skipBtn.style.display = on ? 'inline-flex' : 'none'; }
 
   revealInstant(sec) {
@@ -696,7 +712,7 @@ class Component extends DCLogic {
     if (q) { q.style.opacity = '1'; q.style.transform = 'none'; }
     if (a) { a.style.opacity = '1'; a.style.transform = 'none'; }
     if (think) think.style.display = 'none';
-    if (body) { body.style.opacity = '1'; body.style.transform = 'none'; }
+    if (body) { body.style.display = ''; body.style.opacity = '1'; body.style.transform = 'none'; }
     if (lead) lead.textContent = lead.dataset.line || lead.textContent;
     this.revealChips(sec);
     sec.querySelectorAll('[data-exp-group]').forEach(g => { g.style.opacity = '1'; g.style.transform = 'none'; });
@@ -705,11 +721,27 @@ class Component extends DCLogic {
   }
 
   skipIntro() {
+    if (this._skip) return;
     this._skip = true;
     this.showNudge(false);
     this.showSkip(false);
     document.querySelectorAll('[data-qa]').forEach(sec => this.revealInstant(sec));
     if (this._pickActive) this._pickActive();
+  }
+
+  bindNavSkip() {
+    // If a menu item points to a section still hidden by the gated intro,
+    // skip the intro first so the jump actually lands.
+    const handler = (e, id) => {
+      const sec = id === 'top' ? null : document.getElementById(id);
+      if (sec && getComputedStyle(sec).display === 'none') this.skipIntro();
+    };
+    document.querySelectorAll('[data-nav-link]').forEach(l => {
+      l.addEventListener('click', (e) => handler(e, l.getAttribute('data-nav-link')));
+    });
+    document.querySelectorAll('[data-crumb]').forEach(c => {
+      c.addEventListener('click', (e) => handler(e, c.getAttribute('data-crumb')));
+    });
   }
 
   waitFor(cond) {
@@ -723,6 +755,12 @@ class Component extends DCLogic {
     const sections = [...document.querySelectorAll('[data-qa]')];
     const gate = !window.__introPlayed;
     window.__introPlayed = true;
+
+    // Collapse answer bodies so the bubble only takes the height of what's shown
+    // (thinking dots) until the content is revealed.
+    if (!this._reducedMotion) {
+      document.querySelectorAll('[data-a-body]').forEach(b => { b.style.display = 'none'; });
+    }
 
     if (!gate) {
       sections.forEach(sec => {
@@ -810,9 +848,11 @@ class Component extends DCLogic {
       grow();
       scrollEnd();
       const typing = addAgent('<span style="display:inline-flex; gap:5px; align-items:center; height:14px;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></span>');
+      this.setStatus(true);
       scrollEnd();
       const mail = 'mailto:k@kamaropoulos.com?subject=' + encodeURIComponent('Message from your résumé site') + '&body=' + encodeURIComponent(text);
       setTimeout(() => {
+        this.setStatus(false);
         typing.remove();
         addAgent('Thanks for reaching out! Opening your mail app so this goes straight to my inbox — I\'ll get back to you soon. <a href="' + mail + '" style="color:#6ea8fe;">Didn\'t open? Click here.</a>');
         scrollEnd();
@@ -956,8 +996,41 @@ class Component extends DCLogic {
       }
       const on = t > 0.55;
       if (navid) {
-        navid.style.opacity = on ? '1' : '0';
-        navid.style.transform = on ? 'translateX(0) scale(1)' : 'translateX(-6px) scale(.94)';
+        const style = this.props.profileAnim || 'slide-hero';
+        const name = navid.children[1];
+        navid.style.transition = 'opacity .45s ease, transform .5s cubic-bezier(.34,1.3,.5,1), filter .45s ease';
+        if (on && name) name.style.opacity = '1';
+        if (style === 'pop') {
+          navid.style.opacity = on ? '1' : '0';
+          navid.style.filter = 'none';
+          navid.style.transform = on ? 'translateX(0) scale(1)' : 'translateX(0) scale(.55)';
+        } else if (style === 'blur') {
+          navid.style.transition = 'opacity .5s ease, filter .5s ease';
+          navid.style.opacity = on ? '1' : '0';
+          navid.style.filter = on ? 'blur(0)' : 'blur(6px)';
+          navid.style.transform = 'none';
+        } else if (style === 'slide-left') {
+          navid.style.opacity = on ? '1' : '0';
+          navid.style.filter = 'none';
+          navid.style.transform = on ? 'translateX(0)' : 'translateX(-22px)';
+        } else if (style === 'typewriter') {
+          navid.style.filter = 'none';
+          navid.style.opacity = on ? '1' : '0';
+          navid.style.transform = 'none';
+          if (name) {
+            const nameEl = name.children[0];
+            if (on && nameEl && !nameEl.dataset.typed) {
+              nameEl.dataset.typed = '1';
+              const full = nameEl.textContent; nameEl.textContent = '';
+              let i = 0; const tick = () => { i++; nameEl.textContent = full.slice(0, i); if (i < full.length) setTimeout(tick, 32); };
+              tick();
+            } else if (!on && nameEl) { nameEl.dataset.typed = ''; }
+          }
+        } else { // slide-hero (default): docks up from hero
+          navid.style.opacity = on ? '1' : '0';
+          navid.style.filter = 'none';
+          navid.style.transform = on ? 'translateY(0) scale(1)' : 'translateY(26px) scale(.8)';
+        }
         navid.style.pointerEvents = on ? 'auto' : 'none';
       }
       if (nav && getComputedStyle(nav).display !== 'none') {
@@ -979,7 +1052,7 @@ class Component extends DCLogic {
         open = v;
         crumbMenu.style.opacity = v ? '1' : '0';
         crumbMenu.style.pointerEvents = v ? 'auto' : 'none';
-        crumbMenu.style.transform = 'translateX(-50%) translateY(' + (v ? '0' : '-6px') + ')';
+        crumbMenu.style.transform = 'translateY(' + (v ? '0' : '-6px') + ')';
         if (crumbCaret) crumbCaret.style.transform = v ? 'rotate(180deg)' : 'none';
       };
       crumbBtn.addEventListener('click', (e) => { e.stopPropagation(); setOpen(!open); });
