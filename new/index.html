@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@300;500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; overscroll-behavior-y: none; -webkit-overflow-scrolling: touch; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  a:focus-visible, button:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid #8fb0ec; outline-offset: 3px; border-radius: 6px;
+  }
+  a, button { -webkit-tap-highlight-color: transparent; }
+  @media (max-width: 1180px) {
+    [data-navbar] { display: none !important; }
+    [data-breadcrumb] { display: block !important; }
+  }
+  @media (max-width: 900px) { [data-resume] { display: none !important; } }
+  @media (max-width: 760px) {
+    [data-topbar] { padding-left: 16px !important; padding-right: 16px !important; }
+    #top { padding-left: 18px !important; padding-right: 18px !important; }
+    [data-composer-dock] { padding-left: 16px !important; padding-right: 16px !important; }
+    h1 { font-size: 46px !important; }
+    [data-qa] h2 { font-size: 34px !important; }
+    [data-q] > div, [data-a] { max-width: 100% !important; }
+    [data-skip] { display: none !important; }
+  }
+  @media (max-width: 620px) {
+    [data-grid2] { grid-template-columns: 1fr !important; }
+  }
+  html, body { margin: 0; padding: 0; background: #050509; }
+  body { font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #6ea8fe; text-decoration: none; transition: color .2s; }
+  a:hover { color: #a9c9ff; }
+  ::selection { background: rgba(110,168,254,0.3); color: #fff; }
+  @keyframes drift { 0% { transform: translate(0,0) scale(1); } 33% { transform: translate(6%,-8%) scale(1.12); } 66% { transform: translate(-7%,5%) scale(0.94); } 100% { transform: translate(0,0) scale(1); } }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+  @keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+  @keyframes ringspin { to { transform: rotate(360deg); } }
+  @keyframes pulsedot { 0%,100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1); } }
+  @keyframes nudgebob { 0%,100% { transform: translateX(-50%) translateY(0); opacity:.85; } 50% { transform: translateX(-50%) translateY(5px); opacity:1; } }
+  @media (prefers-reduced-motion: reduce) { [data-aurora] > *, .ringspin { animation: none !important; } }
+</style>
+</helmet>
+  <div style="position:relative; min-height:100vh; background:#0c0e14; font-family:'IBM Plex Sans',sans-serif;">
+      <div data-progress style="position:fixed; top:0; left:0; height:2px; width:0%; background:linear-gradient(90deg,#5f83bd,#7f9fd6); z-index:60; box-shadow:0 0 6px rgba(110,168,254,0.3); transition:width .08s linear;"></div>
+      <div data-aurora style="position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0;">
+        <div style="position:absolute; top:-14%; left:6%; width:46vw; height:46vw; border-radius:50%; background:radial-gradient(circle at center, rgba(96,124,176,0.18), transparent 62%); filter:blur(70px); animation:drift 24s ease-in-out infinite;"></div>
+        <div style="position:absolute; top:24%; right:-8%; width:40vw; height:40vw; border-radius:50%; background:radial-gradient(circle at center, rgba(110,168,254,0.24), transparent 62%); filter:blur(80px); animation:drift 30s ease-in-out infinite reverse;"></div>
+        <div style="position:absolute; bottom:-16%; left:30%; width:42vw; height:42vw; border-radius:50%; background:radial-gradient(circle at center, rgba(96,124,176,0.14), transparent 62%); filter:blur(90px); animation:drift 36s ease-in-out infinite;"></div>
+      </div>
+      <div style="position:absolute; inset:0; pointer-events:none; opacity:0.035; mix-blend-mode:overlay; background-image:url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>&quot;); background-size:180px 180px;"></div>
+      <canvas data-particles style="position:fixed; inset:0; width:100vw; height:100vh; pointer-events:none; z-index:0;"></canvas>
+      <div style="position:absolute; inset:0; background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,0.14), transparent 70%); pointer-events:none;"></div>
+      <div data-spotlight style="position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .4s;"></div>
+      <div data-topbar style="position:sticky; top:0; z-index:50; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:16px 40px; background:transparent; border-bottom:1px solid transparent; backdrop-filter:blur(0px); transition:background .35s, border-color .35s, backdrop-filter .35s, padding .35s, box-shadow .35s;">
+          <div data-navid style="justify-self:start; display:flex; align-items:center; gap:12px; flex:none; font-family:'IBM Plex Sans',sans-serif; color:#c7cbd6; opacity:0; transform:translateX(-6px) scale(.94); transform-origin:left center; transition:opacity .4s ease, transform .4s cubic-bezier(.2,.7,.2,1); pointer-events:none;">
+            <div style="position:relative; flex:none;"><img src="assets/profile.jpg" alt="" style="width:38px; height:38px; border-radius:50%; object-fit:cover; border:1px solid rgba(110,168,254,0.5);"><span style="position:absolute; right:-1px; bottom:-1px; width:10px; height:10px; border-radius:50%; background:#5eba8e; border:2px solid #0c0e14;"></span></div>
+            <div style="line-height:1.2;"><div style="font-weight:600; font-size:14px; color:#eef1f8; white-space:nowrap;">Konstantinos Kamaropoulos</div><div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#5eba8e; white-space:nowrap;">résumé agent · online</div></div>
+          </div>
+          <nav data-navbar style="position:relative; display:flex; align-items:center; gap:2px; padding:6px; border-radius:999px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); backdrop-filter:blur(10px); font-family:'JetBrains Mono',monospace; font-size:13px; transition:background .3s, border-color .3s, transform .5s cubic-bezier(.2,.75,.2,1); will-change:transform;">
+            <span data-nav-highlight style="position:absolute; top:6px; left:6px; height:calc(100% - 12px); width:0; border-radius:999px; background:rgba(110,168,254,0.16); border:1px solid rgba(110,168,254,0.3); box-shadow:0 0 16px rgba(110,168,254,0.25); transition:transform .35s cubic-bezier(.2,.8,.2,1), width .35s cubic-bezier(.2,.8,.2,1); z-index:0;"></span>
+            <a data-nav-link="top" href="#top" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#a9c9ff; transition:color .25s;">About</a>
+            <a data-nav-link="experience" href="#experience" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#8a90a3; transition:color .25s;">Experience</a>
+            <a data-nav-link="education" href="#education" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#8a90a3; transition:color .25s;">Education</a>
+            <a data-nav-link="skills" href="#skills" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#8a90a3; transition:color .25s;">Skills</a>
+            <a data-nav-link="projects" href="#projects" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#8a90a3; transition:color .25s;">Projects</a>
+            <a data-nav-link="contact" href="#contact" style="position:relative; z-index:1; padding:7px 15px; border-radius:999px; color:#8a90a3; transition:color .25s;">Contact</a>
+          </nav>
+          <div data-breadcrumb style="display:none; grid-column:2; justify-self:center; position:relative; font-family:'JetBrains Mono',monospace; font-size:13px;">
+            <button data-breadcrumb-btn style-hover="background:rgba(255,255,255,0.06);" style="display:inline-flex; align-items:center; gap:9px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.09); color:#c7cbd6; cursor:pointer; transition:background .2s;"><i class="fas fa-comment-dots" style="font-size:12px; color:#6ea8fe;"></i> <span data-breadcrumb-label>About</span> <i class="fas fa-chevron-down" data-breadcrumb-caret style="font-size:10px; color:#8a90a3; transition:transform .25s;"></i></button>
+            <div data-breadcrumb-menu style="position:absolute; top:calc(100% + 8px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:180px; padding:6px; border-radius:12px; background:rgba(16,19,27,0.95); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.09); box-shadow:0 16px 40px rgba(0,0,0,0.5); opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s cubic-bezier(.2,.7,.2,1); z-index:10;">
+              <a data-crumb="top" href="#top" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">About</a>
+              <a data-crumb="experience" href="#experience" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">Experience</a>
+              <a data-crumb="education" href="#education" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">Education</a>
+              <a data-crumb="skills" href="#skills" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">Skills</a>
+              <a data-crumb="projects" href="#projects" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">Projects</a>
+              <a data-crumb="learning" href="#learning" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">Learning</a>
+              <a data-crumb="contact" href="#contact" style="display:block; padding:9px 12px; border-radius:8px; color:#c7cbd6;">Contact</a>
+            </div>
+          </div>
+          <a data-resume href="assets/resume.pdf" target="_blank" style-hover="background:rgba(110,168,254,0.2); transform:translateY(-2px);" style="justify-self:end; flex:none; display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border-radius:999px; background:rgba(110,168,254,0.1); border:1px solid rgba(110,168,254,0.3); color:#a9c9ff; font-family:'JetBrains Mono',monospace; font-size:12px; transition:all .2s;"><i class="fas fa-file-pdf"></i> Résumé</a>
+        </div>
+      <div id="top" style="position:relative; z-index:1; padding:8px 64px 40px;">
+
+        <!-- HERO CHAT -->
+        <div style="max-width:820px; margin:32px auto 0;">
+          <div data-hero-intro style="text-align:center; margin-bottom:36px; transform-origin:top center; will-change:opacity, transform;">
+            <div data-reveal style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+            <div style="position:relative; width:104px; height:104px; margin:0 auto 18px;">
+              <div style="position:absolute; inset:-4px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%); opacity:.9;"></div>
+              <div style="position:absolute; inset:-4px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%); filter:blur(12px); opacity:.16;"></div>
+              <img src="assets/profile.jpg" alt="Konstantinos Kamaropoulos" style="position:absolute; inset:4px; width:96px; height:96px; border-radius:50%; object-fit:cover; border:3px solid #0c0e14;">
+            </div>
+            </div>
+            <h1 data-reveal style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); margin:0; font-family:'Saira Extra Condensed',sans-serif; font-weight:800; font-size:64px; line-height:0.92; letter-spacing:-0.01em; text-transform:uppercase; color:#f4f6fb;">Konstantinos <span style="color:#8fb0ec;">Kamaropoulos</span></h1>
+            <p data-reveal style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); margin:10px auto 0; max-width:440px; font-size:15px; color:#8a90a3; line-height:1.6;">You're chatting with my personal résumé agent. Ask about my work, or scroll to read the conversation — then leave me a message at the end.</p>
+            <div data-reveal style="opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); display:flex; align-items:center; gap:14px; max-width:340px; margin:28px auto 0;">
+              <span style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; color:#5a6072;">TODAY</span>
+              <span style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></span>
+            </div>
+          </div>
+
+          <!-- user prompt -->
+          <div data-reveal style="opacity:0; transform:translateY(24px); transition:all .8s cubic-bezier(.2,.7,.2,1); display:flex; justify-content:flex-end; margin-bottom:18px;">
+            <div style="max-width:70%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">Who is Konstantinos Kamaropoulos?</div>
+          </div>
+          <!-- assistant answer -->
+          <div id="hero-answer" data-reveal style="opacity:0; transform:translateY(24px); transition:all .8s cubic-bezier(.2,.7,.2,1); display:flex; gap:14px; align-items:flex-start;">
+            <div style="position:relative; width:40px; height:40px; flex:none;">
+              <div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div>
+              <img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;">
+            </div>
+            <div style="flex:1; padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05);">
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
+                <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:5px 11px; border-radius:999px; background:rgba(110,168,254,0.1); border:1px solid rgba(110,168,254,0.25); color:#a9c9ff;">Computer Generalist</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:5px 11px; border-radius:999px; background:rgba(110,168,254,0.1); border:1px solid rgba(110,168,254,0.25); color:#a9c9ff;">Researcher</span>
+                <span data-decrypt="Ethical Hacker" style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:5px 11px; border-radius:999px; background:rgba(94,186,142,0.1); border:1px solid rgba(94,186,142,0.35); color:#5eba8e; cursor:crosshair; text-shadow:0 0 7px rgba(94,186,142,0.3);">Ethical Hacker</span>
+              </div>
+              <div data-thinking style="display:flex; gap:5px; align-items:center; height:20px; margin:2px 0 10px;">
+                <span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span>
+                <span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span>
+                <span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span>
+              </div>
+              <p data-stream data-text="Self-taught Software Engineer since the age of 8, based in Athens, Greece. Passionate about technology, science and innovation — and how we can use them to make this world (and others) a better place to live in. Building games, tools and systems across the full stack." style="margin:0; font-size:16px; line-height:1.75; color:#c1c7d6;"></p>
+              <div style="margin-top:16px; display:flex; gap:10px;">
+                <a href="mailto:k@kamaropoulos.com" style-hover="background:#8fbcff; transform:translateY(-2px); box-shadow:0 6px 20px rgba(110,168,254,0.35);" style="display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border-radius:10px; background:#6ea8fe; color:#06101f; font-family:'JetBrains Mono',monospace; font-weight:600; font-size:12px; transition:all .2s;"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="https://github.com/Kamaropoulos" target="_blank" style-hover="background:rgba(255,255,255,0.1); transform:translateY(-2px);" style="display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border-radius:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:#c7cbd6; font-family:'JetBrains Mono',monospace; font-size:12px; transition:all .2s;"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/kamaropoulos/" target="_blank" style-hover="background:rgba(255,255,255,0.1); transform:translateY(-2px);" style="display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border-radius:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:#c7cbd6; font-family:'JetBrains Mono',monospace; font-size:12px; transition:all .2s;"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+              </div>
+              <div style="margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06); display:flex; flex-wrap:wrap; gap:8px;">
+                <a href="#projects" style-hover="background:rgba(110,168,254,0.16); color:#a9c9ff;" style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:6px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#8a90a3; transition:all .2s;">→ show me his projects</a>
+                <a href="#skills" style-hover="background:rgba(110,168,254,0.16); color:#a9c9ff;" style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:6px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#8a90a3; transition:all .2s;">→ what does he know</a>
+                <a href="#contact" style-hover="background:rgba(110,168,254,0.16); color:#a9c9ff;" style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:6px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#8a90a3; transition:all .2s;">→ how do I reach him</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="max-width:820px; margin:0 auto;">
+          <!-- EXPERIENCE (dummy placeholder — replace with real history) -->
+          <section id="experience" data-qa style="padding-top:64px; scroll-margin-top:90px;">
+            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+              <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">Where has he worked?</div>
+            </div>
+            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+              <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
+              <div style="flex:1; min-width:0;">
+                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                  <div style="padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05);">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;"><span data-stream-line style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#c7cbd6;">Here's my work history:</span></div>
+                    <div data-exp-group style="margin-bottom:8px;">
+                      <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;"><span style="display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:8px; background:rgba(110,168,254,0.12); border:1px solid rgba(110,168,254,0.25); color:#6ea8fe; font-size:11px;"><i class="fas fa-briefcase"></i></span><span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6ea8fe; font-weight:600;">Professional</span><span style="flex:1; height:1px; background:rgba(110,168,254,0.15);"></span></div>
+                      <div style="display:flex; flex-direction:column; gap:12px;">
+                        <div data-exp-item style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2025 – 2026</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Co-Founder &amp; CTO</h3><div style="color:#6ea8fe; font-size:14px; margin:4px 0 8px;">SK IT Consulting Services L.P.</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">An IT consulting agency delivering tailored technology solutions to diverse businesses. Responsibilities ranged from day-to-day operations, client communications and relationship management to solution architecture for Microsoft 365 solutions, compute and networking infrastructure projects, and overseeing software development projects.</p></div></div>
+                        <div data-exp-item style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2021 – 2025</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">CTO &amp; Tech Lead</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:8px;">Divimah S.A.</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">A fast-paced startup project built entirely from the ground up. Responsibilities ranged from designing the full system architecture and managing a development team to hands-on coding and implementing core features to bring the product to life.</p></div></div>
+                        <div data-exp-item style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2020 – 2021</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Software Engineer</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:8px;">nilware.io</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">A cross-disciplinary team with expertise spanning from Assembly and Compilers, to Robotics and Embedded Systems, to Web, AI and Blockchain, and everything in between.</p></div></div>
+                        <div data-exp-item style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2017 – 2020</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Software Engineer</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:8px;">Gran Skrea Online</div><p style="margin:0; color:#9aa0b3; font-size:14px; line-height:1.7;">An MMORPG developed by an international indie game-development team, available in Early Access on Steam. Responsibilities ranged from network programming, backend, game logic and web development to server and database administration and operations.</p></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- EDUCATION -->
+          <section id="education" data-qa style="padding-top:56px; scroll-margin-top:90px;">
+            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+              <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">Where did he study?</div>
+            </div>
+            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+              <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
+              <div style="flex:1; min-width:0;">
+                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                  <div style="padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05); display:flex; flex-direction:column; gap:14px;">
+                    <div style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2017 – 2018</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">Udacity &amp; Google</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:6px;">Mobile Web Specialist Nanodegree</div><p style="margin:0; color:#9aa0b3; font-size:14px;">Google Developer Challenge Scholarship · <a href="https://github.com/Kamaropoulos/Udacity-MWS-Nanodegree-Project" target="_blank">Source</a> · <a href="https://mws.kamaropoulos.com/" target="_blank">Demo</a></p></div></div>
+                    <div style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2015 – Present</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">University of West Attica</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:6px;">B.Sc. Informatics &amp; Computer Engineering</div></div></div>
+                    <div style="display:flex; gap:18px; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5a6072; white-space:nowrap; width:120px; flex:none; text-align:right;">2012 – 2015</span><div style="flex:1; padding-left:22px; border-left:1px solid rgba(255,255,255,0.1);"><h3 style="margin:0 0 4px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:24px; color:#eef1f8;">1st Vocational School of Nea Filadelfeia</h3><div style="color:#6ea8fe; font-size:14px; margin-bottom:6px;">Computer &amp; Computer Networks Engineering</div><p style="margin:0; color:#9aa0b3; font-size:14px;">Score 19.6 / 20</p></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SKILLS -->
+          <section id="skills" data-qa style="padding-top:56px; scroll-margin-top:90px;">
+            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+              <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">What technologies does he work with?</div>
+            </div>
+            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+              <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
+              <div style="flex:1; min-width:0;">
+                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                  <div style="padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05); display:flex; flex-direction:column; gap:12px;">
+                    <div data-stream-line style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#c7cbd6; margin-bottom:2px;">I work across the full stack — here's my toolkit, with core strengths highlighted:</div>
+                    <div data-skill-card style="padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(110,168,254,0.05), rgba(110,168,254,0.01)); border:1px solid rgba(110,168,254,0.14);">
+                      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;"><span style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9px; background:rgba(110,168,254,0.14); border:1px solid rgba(110,168,254,0.3); color:#6ea8fe; font-size:14px;"><i class="fas fa-code"></i></span><span style="font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:21px; letter-spacing:.01em; color:#eef1f8; text-transform:uppercase;">Programming Languages</span><span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; padding:4px 10px; border-radius:999px; background:rgba(110,168,254,0.1); border:1px solid rgba(110,168,254,0.22); color:#6ea8fe;">{{ plang.length }}</span></div>
+                      <div style="display:flex; flex-wrap:wrap; gap:9px; align-items:center;"><sc-for list="{{ plang }}" as="s" hint-placeholder-count="12"><span data-skill-chip style-hover="background:rgba(110,168,254,0.18); border-color:rgba(110,168,254,0.5); transform:translateY(-2px) scale(1.04); color:#eef1f8;" style="{{ s.style }}">{{ s.text }}</span></sc-for></div>
+                    </div>
+                    <div data-skill-card style="padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(148,163,184,0.05), rgba(148,163,184,0.01)); border:1px solid rgba(148,163,184,0.16);">
+                      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;"><span style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9px; background:rgba(148,163,184,0.14); border:1px solid rgba(148,163,184,0.3); color:#c3ccdb; font-size:14px;"><i class="fas fa-toolbox"></i></span><span style="font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:21px; letter-spacing:.01em; color:#eef1f8; text-transform:uppercase;">Tools &amp; Technologies</span><span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; padding:4px 10px; border-radius:999px; background:rgba(148,163,184,0.1); border:1px solid rgba(148,163,184,0.24); color:#c3ccdb;">{{ tools.length }}</span></div>
+                      <div style="display:flex; flex-wrap:wrap; gap:9px; align-items:center;"><sc-for list="{{ tools }}" as="s" hint-placeholder-count="12"><span data-skill-chip style-hover="background:rgba(148,163,184,0.18); border-color:rgba(148,163,184,0.5); transform:translateY(-2px) scale(1.04); color:#eef1f8;" style="{{ s.style }}">{{ s.text }}</span></sc-for></div>
+                    </div>
+                    <div data-skill-card style="padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.008)); border:1px solid rgba(255,255,255,0.1);">
+                      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;"><span style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.16); color:#c7cbd6; font-size:14px;"><i class="fas fa-layer-group"></i></span><span style="font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:21px; letter-spacing:.01em; color:#eef1f8; text-transform:uppercase;">Industry Knowledge</span><span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; padding:4px 10px; border-radius:999px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); color:#8a90a3;">{{ industry.length }}</span></div>
+                      <div style="display:flex; flex-wrap:wrap; gap:9px; align-items:center;"><sc-for list="{{ industry }}" as="s" hint-placeholder-count="10"><span data-skill-chip style-hover="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.3); transform:translateY(-2px) scale(1.04); color:#eef1f8;" style="{{ s.style }}">{{ s.text }}</span></sc-for></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- PROJECTS -->
+          <section id="projects" data-qa style="padding-top:56px; scroll-margin-top:90px;">
+            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+              <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">What has he built?</div>
+            </div>
+            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+              <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
+              <div style="flex:1; min-width:0;">
+                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                  <div style="padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05);">
+                    <div data-stream-line style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#c7cbd6; margin-bottom:16px;">A selection of things I've shipped:</div>
+            <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.45); box-shadow:0 18px 40px rgba(0,0,0,0.45);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; position:relative; margin-bottom:16px; border-radius:14px; overflow:hidden; background:linear-gradient(180deg, rgba(110,168,254,0.08), rgba(110,168,254,0.02)); border:1px solid rgba(110,168,254,0.3);">
+              <div style="display:flex; align-items:center; gap:6px; padding:11px 16px; background:rgba(110,168,254,0.06); border-bottom:1px solid rgba(110,168,254,0.16);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">gran-skrea-online</span><span style="margin-left:auto; display:inline-flex; align-items:center; gap:5px; font-family:'JetBrains Mono',monospace; font-size:10px; padding:3px 9px; border-radius:999px; background:rgba(110,168,254,0.14); border:1px solid rgba(110,168,254,0.3); color:#a9c9ff;"><i class="fas fa-thumbtack" style="font-size:9px;"></i> FEATURED</span></div>
+              <div style="padding:22px;">
+                <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:6px;"><h3 style="margin:0; font-family:'Saira Extra Condensed',sans-serif; font-weight:700; font-size:30px; color:#f4f6fb;">Gran Skrea Online</h3><span style="font-family:'JetBrains Mono',monospace; font-size:10px; padding:3px 9px; border-radius:999px; background:rgba(94,186,142,0.12); border:1px solid rgba(94,186,142,0.3); color:#5eba8e;">EARLY ACCESS · STEAM</span></div>
+                <p style="margin:0 0 16px; color:#9aa0b3; font-size:14px; line-height:1.7; max-width:600px;">A solo-built, old-school medieval-fantasy MMORPG — custom game systems, persistent world, and live economy. My longest-running project and the clearest proof of end-to-end ownership: engine, backend, and content.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+                  <div style="flex:1; min-width:120px; padding:12px 14px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);"><div style="font-family:'Saira Extra Condensed',sans-serif; font-weight:700; font-size:26px; color:#eef1f8; line-height:1;">8+ yrs</div><div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:#5a6072; margin-top:3px;">In development</div></div>
+                  <div style="flex:1; min-width:120px; padding:12px 14px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);"><div style="font-family:'Saira Extra Condensed',sans-serif; font-weight:700; font-size:26px; color:#eef1f8; line-height:1;">Solo</div><div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:#5a6072; margin-top:3px;">Design + engineering</div></div>
+                  <div style="flex:1; min-width:120px; padding:12px 14px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);"><div style="font-family:'Saira Extra Condensed',sans-serif; font-weight:700; font-size:26px; color:#eef1f8; line-height:1;">Live</div><div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:#5a6072; margin-top:3px;">Public release</div></div>
+                </div>
+                <div style="display:flex; gap:16px; font-family:'JetBrains Mono',monospace; font-size:13px;"><a href="https://store.steampowered.com/app/595110/Gran_Skrea_Online/" target="_blank"><i class="fab fa-steam"></i> View on Steam</a><a href="https://granskreaonline.com" target="_blank"><i class="fas fa-globe"></i> Website</a></div>
+              </div>
+            </div>
+            <div data-grid2 style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">encrypt-every-word</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">A Twitter bot with plans to tweet every English word in encrypted form.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://twitter.com/CipherEveryword" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://encrypteveryword.kamaropoulos.com" target="_blank"><i class="fas fa-globe"></i> Site</a></div></div></div>
+              <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">rails-playground</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">Projects made while learning Ruby on Rails — incl. Checklist &amp; SimpleBlog.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://github.com/Kamaropoulos/RailsPlayground" target="_blank"><i class="fab fa-github"></i> Source</a><a href="https://checklist.kamaropoulos.com/" target="_blank"><i class="fas fa-globe"></i> Demo</a></div></div></div>
+              <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">goctapus</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">A REST API server built with Go and Echo.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://github.com/Kamaropoulos/goctapus" target="_blank"><i class="fab fa-github"></i> Source</a></div></div></div>
+              <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">tiny-go-rl</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">A small URL shortener in Golang + Vue.js. Built while bored in class.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://github.com/Kamaropoulos/TinyGoRL" target="_blank"><i class="fab fa-github"></i> Source</a><a href="https://tinygorl.kamaropoulos.com" target="_blank"><i class="fas fa-globe"></i> Demo</a></div></div></div>
+              <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">photon</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">A very simple image-sharing website in pure PHP and JavaScript.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://github.com/Kamaropoulos/Photon" target="_blank"><i class="fab fa-github"></i> Source</a><a href="https://projects.kamaropoulos.com/photon" target="_blank"><i class="fas fa-globe"></i> Demo</a></div></div></div>
+              <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">stack-underflow</span><span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; padding:3px 8px; border-radius:999px; background:rgba(110,168,254,0.1); border:1px solid rgba(110,168,254,0.24); color:#a9c9ff;">OpenFest '17 talk</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">A basic StackOverflow clone in PHP + Laravel 5. Presented at OpenFest 2017.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://github.com/Kamaropoulos/StackUnderflow" target="_blank"><i class="fab fa-github"></i> Source</a><a href="https://stackunderflow.kamaropoulos.com" target="_blank"><i class="fas fa-globe"></i> Demo</a></div></div></div>
+              <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">aiolos</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">IoT system collecting environmental data via drone swarms &amp; long-range radio.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://aiolos.kamaropoulos.com" target="_blank"><i class="fas fa-globe"></i> Demo</a></div></div></div>
+              <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">covid19py</span><span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; padding:3px 8px; border-radius:999px; background:rgba(94,186,142,0.12); border:1px solid rgba(94,186,142,0.28); color:#5eba8e;"><i class="fab fa-python" style="font-size:9px;"></i> on PyPI</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">A tiny Python package for up-to-date COVID-19 case data.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://github.com/Kamaropoulos/COVID19Py" target="_blank"><i class="fab fa-github"></i> Source</a><a href="https://pypi.org/project/COVID19Py/" target="_blank"><i class="fab fa-python"></i> PyPI</a></div></div></div>
+              <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4); box-shadow:0 12px 28px rgba(0,0,0,0.4);" style="transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><div style="display:flex; align-items:center; gap:6px; padding:10px 14px; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span><span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span><span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span><span style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a90a3;">mango</span></div><div style="padding:18px;"><p style="margin:0 0 12px; color:#9aa0b3; font-size:14px; line-height:1.6;">A surrealist 3D video game based on art, derealization and airplanes.</p><div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://www.mango-game.com/" target="_blank"><i class="fas fa-globe"></i> Site</a></div></div></div>
+            </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- LEARNING -->
+          <section id="learning" data-qa style="padding-top:56px; scroll-margin-top:90px;">
+            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+              <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">What is he learning right now?</div>
+            </div>
+            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+              <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
+              <div style="flex:1; min-width:0;">
+                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                  <div style="padding:20px 22px; border-radius:4px 16px 16px 16px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05);">
+                    <blockquote style="margin:0 0 18px; padding-left:20px; border-left:3px solid rgba(110,168,254,0.4);"><p style="margin:0; font-size:18px; font-style:italic; color:#c7cbd6;">"Life is about learning; when you stop learning, you die."</p><footer style="margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:13px; color:#5a6072;">— Tom Clancy</footer></blockquote>
+                    <div data-grid2 style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                      <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4);" style="transition:transform .3s, border-color .3s; padding:20px; border-radius:12px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><h3 style="margin:0 0 6px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:23px; color:#eef1f8;">Flutter &amp; Dart</h3><p style="margin:0 0 10px; color:#9aa0b3; font-size:14px; line-height:1.6;">Google's SDK for crafting high-quality native interfaces on iOS &amp; Android.</p><div style="font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://flutter.io/" target="_blank"><i class="fas fa-globe"></i> Official</a></div></div>
+                      <div style-hover="transform:translateY(-4px); border-color:rgba(110,168,254,0.4);" style="transition:transform .3s, border-color .3s; padding:20px; border-radius:12px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);"><h3 style="margin:0 0 6px; font-family:'Saira Extra Condensed',sans-serif; font-weight:600; font-size:23px; color:#eef1f8;">Ruby on Rails</h3><p style="margin:0 0 10px; color:#9aa0b3; font-size:14px; line-height:1.6;">An open-source framework for database-backed web development in Ruby.</p><div style="font-family:'JetBrains Mono',monospace; font-size:12px;"><a href="https://rubyonrails.org/" target="_blank"><i class="fas fa-globe"></i> Official</a></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CONTACT -->
+          <section id="contact" data-qa style="padding-top:56px; scroll-margin-top:90px;">
+            <div data-q style="opacity:0; transform:translateY(22px) scale(.96); transform-origin:100% 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; justify-content:flex-end; margin-bottom:18px; scroll-margin-top:90px;">
+              <div style="max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; font-family:'JetBrains Mono',monospace;">How can I get in touch?</div>
+            </div>
+            <div data-a style="opacity:0; transform:translateY(18px) scale(.97); transform-origin:0 100%; transition:opacity .38s ease, transform .5s cubic-bezier(.34,1.42,.5,1); display:flex; gap:14px; align-items:flex-start;">
+              <div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>
+              <div style="flex:1; min-width:0;">
+                <div data-a-think style="display:flex; gap:5px; align-items:center; height:20px; padding:14px 0;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></div>
+                <div data-a-body style="opacity:0; transform:translateY(8px) scale(.98); transform-origin:0 0; transition:opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1);">
+                  <div style="padding:26px 24px; border-radius:4px 16px 16px 16px; background:linear-gradient(135deg, rgba(110,168,254,0.07), rgba(110,168,254,0.02)); border:1px solid rgba(110,168,254,0.22);">
+                    <h2 style="margin:0 0 10px; font-family:'Saira Extra Condensed',sans-serif; font-weight:700; font-size:44px; line-height:1; color:#f4f6fb; text-transform:uppercase;">Let's build something</h2>
+                    <p style="margin:0 0 18px; max-width:440px; color:#9aa0b3; font-size:15px; line-height:1.6;">Have a project, a question, or just want to say hi? My inbox is always open.</p>
+                    <a href="assets/resume.pdf" target="_blank" style-hover="border-color:rgba(110,168,254,0.45); background:rgba(255,255,255,0.05);" style="display:flex; align-items:center; gap:14px; max-width:360px; margin-bottom:18px; padding:14px 16px; border-radius:12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); transition:all .2s;"><span style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; flex:none; border-radius:10px; background:rgba(110,168,254,0.14); border:1px solid rgba(110,168,254,0.28); color:#a9c9ff; font-size:17px;"><i class="fas fa-file-pdf"></i></span><span style="flex:1; min-width:0;"><span style="display:block; font-size:14px; color:#eef1f8; font-weight:600;">Konstantinos_Kamaropoulos_CV.pdf</span><span style="display:block; font-family:'JetBrains Mono',monospace; font-size:11px; color:#5a6072;">Résumé · PDF · tap to download</span></span><span style="flex:none; color:#8a90a3; font-size:15px;"><i class="fas fa-download"></i></span></a>
+                    <div style="display:flex; flex-wrap:wrap; gap:12px;">
+                      <button data-copy-email style-hover="background:#8fbcff; transform:translateY(-3px); box-shadow:0 10px 28px rgba(110,168,254,0.4);" style="display:inline-flex; align-items:center; gap:10px; padding:13px 22px; border-radius:12px; border:none; cursor:pointer; background:#6ea8fe; color:#06101f; font-family:'JetBrains Mono',monospace; font-weight:600; font-size:14px; transition:all .25s;"><i class="fas fa-copy"></i> <span data-copy-label>Copy email</span></button>
+                      <a href="mailto:k@kamaropoulos.com" style-hover="background:rgba(255,255,255,0.12); transform:translateY(-3px);" style="display:inline-flex; align-items:center; gap:10px; padding:13px 22px; border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:#c7cbd6; font-family:'JetBrains Mono',monospace; font-weight:500; font-size:14px; transition:all .25s;"><i class="fas fa-envelope"></i> Email me</a>
+                      <a href="https://blog.kamaropoulos.com" target="_blank" style-hover="background:rgba(255,255,255,0.12); transform:translateY(-3px);" style="display:inline-flex; align-items:center; gap:10px; padding:13px 22px; border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:#c7cbd6; font-family:'JetBrains Mono',monospace; font-weight:500; font-size:14px; transition:all .25s;"><i class="fas fa-external-link-alt"></i> Blog</a>
+                    </div>
+                    <div style="margin-top:22px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#4a5069;">Athens, Greece · <span style="color:#5eba8e;">●</span> online</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- REPLY COMPOSER -->
+          <div style="padding-top:56px; padding-bottom:150px;">
+            <div style="display:flex; align-items:center; gap:14px; max-width:340px; margin:0 auto 24px;">
+              <span style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; color:#5a6072;">YOUR TURN</span>
+              <span style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></span>
+            </div>
+            <div id="reply-thread" style="display:flex; flex-direction:column; gap:18px;"></div>
+          </div>
+        </div>
+      </div>
+      <!-- pinned composer dock -->
+      <div data-composer-dock style="position:fixed; left:0; right:0; bottom:0; z-index:55; padding:28px 64px 18px; background:linear-gradient(to top, #0c0e14 62%, rgba(6,6,16,0)); pointer-events:none;">
+        <div style="max-width:820px; margin:0 auto; pointer-events:auto;">
+          <div data-composer style="display:flex; align-items:flex-end; gap:10px; padding:10px 10px 10px 18px; border-radius:20px; background:rgba(20,20,32,0.9); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 32px rgba(0,0,0,0.45); transition:border-color .25s, box-shadow .25s;">
+            <textarea id="reply-input" rows="1" placeholder="Write a message to Konstantinos…" style="flex:1; resize:none; max-height:160px; background:transparent; border:none; outline:none; color:#eef1f8; font-family:'IBM Plex Sans',sans-serif; font-size:15px; line-height:1.5; padding:8px 0;"></textarea>
+            <button id="reply-send" style-hover="background:#8fbcff; transform:translateY(-1px);" style="flex:none; display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; border:none; cursor:pointer; background:#6ea8fe; color:#06101f; font-size:16px; transition:all .2s;"><i class="fas fa-arrow-up"></i></button>
+          </div>
+          <div style="margin-top:9px; text-align:center; font-family:'JetBrains Mono',monospace; font-size:11px; color:#4a5069;"><i class="fas fa-lock" style="font-size:10px;"></i> Delivered straight to my inbox · k@kamaropoulos.com</div>
+        </div>
+      </div>
+  </div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showParticles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Background&quot;},&quot;particleDensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.4,&quot;max&quot;:2,&quot;step&quot;:0.2,&quot;unit&quot;:&quot;×&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Background&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (arr, accent, glow) => {
+      const sorted = [...arr].sort((a, b) => b.w - a.w);
+      const cutoff = sorted[Math.min(3, sorted.length - 1)].w;
+      return arr.map((s, i) => {
+        const featured = s.w >= cutoff;
+        const size = (13 + s.w * 1.25).toFixed(0) + 'px';
+        const op = featured ? '1' : (0.62 + s.w * 0.028).toFixed(2);
+        const bg = featured ? accent.bgStrong : accent.bg;
+        const border = featured ? accent.borderStrong : accent.border;
+        const color = featured ? accent.textStrong : '#c7cbd6';
+        const shadow = '';
+        const style = "font-family:'JetBrains Mono',monospace; font-size:" + size + "; line-height:1; padding:7px 13px; border-radius:8px; background:" + bg + "; border:1px solid " + border + "; color:" + color + "; opacity:" + op + "; " + shadow + " transition:transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease; cursor:default;";
+        return { text: s.text, style };
+      });
+    };
+    const plang = mk([
+      {text:'C++',w:10},{text:'Node.js',w:10.5},{text:'Go',w:9.4},{text:'PHP',w:8},{text:'C',w:6},
+      {text:'C#',w:7},{text:'Ruby',w:7},{text:'Python',w:5},{text:'HTML',w:6},{text:'SQL',w:10},
+      {text:'Java',w:6},{text:'JavaScript',w:8},{text:'TypeScript',w:5},{text:'Assembly',w:5},
+      {text:'MATLAB',w:4},{text:'Pascal',w:4},{text:'CSS',w:4}
+    ], { bg:'rgba(110,168,254,0.06)', border:'rgba(110,168,254,0.18)', bgStrong:'rgba(110,168,254,0.16)', borderStrong:'rgba(110,168,254,0.45)', textStrong:'#dbe9ff' }, 'rgba(110,168,254,0.25)');
+    const tools = mk([
+      {text:'Unity3D',w:12},{text:'Unreal Engine',w:9},{text:'Git',w:9},{text:'MySQL',w:13},{text:'gulp',w:8},
+      {text:'Ruby on Rails',w:7},{text:'MongoDB',w:7},{text:'Meteor',w:7},{text:'Express.js',w:8},
+      {text:'Angular',w:10},{text:'Docker',w:7},{text:'Laravel',w:6},{text:'React',w:5},{text:'Vue.js',w:5},
+      {text:'Django',w:5},{text:'AWS',w:3},{text:'React Native',w:3}
+    ], { bg:'rgba(148,163,184,0.06)', border:'rgba(148,163,184,0.2)', bgStrong:'rgba(148,163,184,0.16)', borderStrong:'rgba(148,163,184,0.42)', textStrong:'#e2e6ee' }, 'rgba(148,163,184,0.3)');
+    const industry = mk([
+      {text:'Game Development',w:9},{text:'Web Development',w:10},{text:'Agile',w:7},{text:'Game Design',w:8},
+      {text:'Software Design',w:9},{text:'Cloud Computing',w:7},{text:'Mobile Apps',w:6},{text:'Microservices',w:6},
+      {text:'Research',w:6},{text:'Databases',w:10},{text:'Networking',w:8},{text:'DevOps',w:8},
+      {text:'Software Architecture',w:9},{text:'Software Engineering',w:10}
+    ], { bg:'rgba(255,255,255,0.03)', border:'rgba(255,255,255,0.1)', bgStrong:'rgba(255,255,255,0.08)', borderStrong:'rgba(255,255,255,0.28)', textStrong:'#f4f6fb' }, 'rgba(255,255,255,0.12)');
+    return { plang, tools, industry };
+  }
+
+  componentDidMount() {
+    this._raf = [];
+    this._reducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    setTimeout(() => {
+      this.initTypewriter();
+      this.initReveal();
+      this.initStream();
+      this.initParticles();
+      this.initDecrypt();
+      this.initProgress();
+      this.initScrollSpy();
+      this.initSpotlight();
+      this.prepChips();
+      this.initChrome();
+      this.initContactActions();
+      this.initChat();
+      this.initComposer();
+    }, 60);
+  }
+  componentWillUnmount() { (this._raf||[]).forEach(id => cancelAnimationFrame(id)); }
+
+  componentDidUpdate(prev) {
+    if (prev.showParticles !== this.props.showParticles || prev.particleDensity !== this.props.particleDensity) {
+      (this._raf || []).forEach(id => cancelAnimationFrame(id));
+      this._raf = [];
+      this.initParticles();
+    }
+  }
+
+  initTypewriter() {
+    document.querySelectorAll('[data-typewriter]').forEach(el => {
+      const roles = (el.getAttribute('data-roles')||'').split('|');
+      let ri = 0, ci = 0, del = false;
+      const tick = () => {
+        const word = roles[ri];
+        if (!del) {
+          ci++;
+          el.textContent = word.slice(0, ci);
+          if (ci === word.length) { del = true; return setTimeout(tick, 1400); }
+        } else {
+          ci--;
+          el.textContent = word.slice(0, ci);
+          if (ci === 0) { del = false; ri = (ri + 1) % roles.length; }
+        }
+        setTimeout(tick, del ? 45 : 85);
+      };
+      tick();
+    });
+  }
+
+  initReveal() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('[data-reveal]').forEach((el, i) => {
+      el.style.transitionDelay = (Math.min(i, 6) * 40) + 'ms';
+      io.observe(el);
+    });
+  }
+
+  initStream() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        const el = e.target;
+        const dots = document.querySelector('[data-thinking]');
+        const full = el.getAttribute('data-text') || '';
+        const begin = () => {
+          if (dots) dots.style.display = 'none';
+          let i = 0;
+          el.innerHTML = '<span class="st"></span><span class="cur" style="color:#6ea8fe;">▋</span>';
+          const span = el.querySelector('.st'); const cur = el.querySelector('.cur');
+          const step = () => {
+            i += 2;
+            span.textContent = full.slice(0, i);
+            if (i < full.length) setTimeout(step, 16);
+            else { cur.style.animation = 'blink 1s step-end infinite'; if (el.closest('#top')) this._heroStreamDone = true; }
+          };
+          step();
+        };
+        if (dots) setTimeout(begin, 750); else begin();
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('[data-stream]').forEach(el => io.observe(el));
+  }
+
+  initDecrypt() {
+    const CH = '!<>-_\\/[]{}—=+*^?#01';
+    const scramble = (el, dur) => {
+      const target = el.getAttribute('data-decrypt') || el.textContent;
+      const start = performance.now();
+      const seeds = target.split('').map(() => Math.random());
+      const run = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        let out = '';
+        for (let i = 0; i < target.length; i++) {
+          const reveal = i / target.length;
+          if (p >= reveal + 0.15) out += target[i];
+          else if (target[i] === ' ') out += ' ';
+          else out += CH[Math.floor((Math.random() * seeds[i] + now / 40) % CH.length)];
+        }
+        el.textContent = out;
+        if (p < 1) this._raf.push(requestAnimationFrame(run));
+        else el.textContent = target;
+      };
+      this._raf.push(requestAnimationFrame(run));
+    };
+    document.querySelectorAll('[data-decrypt]').forEach(el => {
+      const io = new IntersectionObserver((ents) => {
+        ents.forEach(e => { if (e.isIntersecting) { scramble(el, 1100); io.unobserve(el); } });
+      }, { threshold: 0.6 });
+      io.observe(el);
+      el.addEventListener('mouseenter', () => scramble(el, 700));
+    });
+  }
+
+  prepChips() {
+    document.querySelectorAll('[data-skill-chip]').forEach(c => {
+      c.setAttribute('data-target-op', c.style.opacity || '1');
+      c.style.transition = c.style.transition + ', opacity .5s ease, transform .5s cubic-bezier(.2,.7,.2,1)';
+      c.style.opacity = '0';
+      c.style.transform = (c.style.transform || '') + ' scale(.6)';
+    });
+  }
+
+  revealChips(scope) {
+    const chips = [...scope.querySelectorAll('[data-skill-chip]')];
+    chips.forEach((c, i) => {
+      setTimeout(() => {
+        c.style.opacity = c.getAttribute('data-target-op') || '1';
+        c.style.transform = 'none';
+      }, i * 20);
+    });
+  }
+
+  typeInto(el, text, cps) {
+    return new Promise(resolve => {
+      if (this._reducedMotion || this._skip) { el.textContent = text; return resolve(); }
+      el.textContent = '';
+      const caret = document.createElement('span');
+      caret.textContent = '▋';
+      caret.style.cssText = 'color:#6ea8fe; margin-left:1px; animation:blink 1s step-end infinite;';
+      el.appendChild(caret);
+      let i = 0;
+      const base = 1000 / cps;
+      const step = () => {
+        if (this._skip) { caret.remove(); el.textContent = text; return resolve(); }
+        i++;
+        el.textContent = text.slice(0, i);
+        el.appendChild(caret);
+        if (i >= text.length) { caret.remove(); return resolve(); }
+        const ch = text[i - 1];
+        let d = base * (0.55 + Math.random() * 0.9);
+        if ('.!?'.includes(ch)) d += 300 + Math.random() * 260;
+        else if (',;:—'.includes(ch)) d += 150 + Math.random() * 140;
+        else if (Math.random() < 0.06) d += 120;
+        setTimeout(step, d);
+      };
+      setTimeout(step, 240);
+    });
+  }
+
+  streamWords(el) {
+    return new Promise(resolve => {
+      const text = (el.dataset.line || el.textContent).trim();
+      el.dataset.line = text;
+      if (this._reducedMotion || this._skip) { el.textContent = text; return resolve(); }
+      const words = text.split(' ');
+      el.textContent = '';
+      const cur = document.createElement('span');
+      cur.textContent = '▋';
+      cur.style.cssText = 'color:#6ea8fe; margin-left:2px; animation:blink 1s step-end infinite;';
+      el.appendChild(cur);
+      let i = 0;
+      const step = () => {
+        if (this._skip) { cur.remove(); el.textContent = text; return resolve(); }
+        el.textContent = words.slice(0, i + 1).join(' ');
+        el.appendChild(cur);
+        i++;
+        if (i < words.length) setTimeout(step, 45 + Math.random() * 80);
+        else setTimeout(() => { cur.remove(); resolve(); }, 220);
+      };
+      setTimeout(step, 120);
+    });
+  }
+
+  fmtTime() {
+    const d = new Date();
+    let h = d.getHours();
+    const m = ('' + d.getMinutes()).padStart(2, '0');
+    const ap = h < 12 ? 'AM' : 'PM';
+    h = h % 12 || 12;
+    return h + ':' + m + ' ' + ap;
+  }
+
+  stampUser(q) {
+    if (!q || q.dataset.stamped) return;
+    q.dataset.stamped = '1';
+    q.style.flexDirection = 'column';
+    q.style.alignItems = 'flex-end';
+    const meta = document.createElement('div');
+    meta.style.cssText = "margin-top:5px; font-family:'JetBrains Mono',monospace; font-size:10px; color:#5a6072; display:flex; align-items:center; gap:5px;";
+    meta.innerHTML = this.fmtTime() + ' <span style="color:#6ea8fe;">✓✓</span>';
+    q.appendChild(meta);
+  }
+
+  stampAgent(a) {
+    if (!a || a.dataset.stamped) return;
+    a.dataset.stamped = '1';
+    const col = a.children[1];
+    if (!col) return;
+    const meta = document.createElement('div');
+    meta.style.cssText = "margin-top:7px; font-family:'JetBrains Mono',monospace; font-size:10px; color:#5a6072;";
+    meta.textContent = this.fmtTime();
+    col.appendChild(meta);
+  }
+
+  scrollToEl(el, off) {
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - (off == null ? 110 : off);
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  }
+
+  playSection(sec) {
+    return new Promise(resolve => {
+      const q = sec.querySelector('[data-q]');
+      const qbubble = sec.querySelector('[data-q] > div');
+      const a = sec.querySelector('[data-a]');
+      const think = sec.querySelector('[data-a-think]');
+      const body = sec.querySelector('[data-a-body]');
+      const lead = sec.querySelector('[data-stream-line]');
+      if (qbubble && !qbubble.dataset.qtext) qbubble.dataset.qtext = qbubble.textContent.trim();
+      const finish = () => {
+        if (sec.querySelector('[data-skill-chip]')) this.revealChips(sec);
+        const groups = [...sec.querySelectorAll('[data-exp-group]')].filter(g => g.style.opacity === '0');
+        groups.forEach((g, i) => setTimeout(() => { g.style.opacity = '1'; g.style.transform = 'none'; }, 500 + i * 550));
+        this.stampAgent(a);
+        const extra = groups.length ? 500 + groups.length * 550 + 300 : 400;
+        setTimeout(resolve, Math.max(400, extra));
+      };
+      const revealBody = () => {
+        if (think) think.style.display = 'none';
+        if (body) { body.style.opacity = '1'; body.style.transform = 'none'; }
+        if (lead) this.streamWords(lead).then(finish);
+        else finish();
+      };
+      if (q) { q.style.opacity = '1'; q.style.transform = 'none'; }
+      const afterType = () => {
+        this.stampUser(q);
+        const pause = 360;
+        const think2 = this._reducedMotion ? 0 : 900 + Math.random() * 650;
+        setTimeout(() => { if (a) { a.style.opacity = '1'; a.style.transform = 'none'; } }, pause);
+        setTimeout(revealBody, pause + think2);
+      };
+      if (qbubble) this.typeInto(qbubble, qbubble.dataset.qtext, 34).then(afterType);
+      else afterType();
+    });
+  }
+
+  waitScrollEnd(el) {
+    return new Promise(resolve => {
+      if (!el || this._skip) return resolve();
+      const atEnd = () => el.getBoundingClientRect().bottom <= window.innerHeight + 48;
+      if (atEnd()) return resolve();
+      this.showNudge(true);
+      let done = false;
+      const check = () => {
+        if (done) return;
+        if (this._skip || atEnd()) {
+          done = true;
+          window.removeEventListener('scroll', check);
+          this.showNudge(false);
+          resolve();
+        }
+      };
+      window.addEventListener('scroll', check, { passive: true });
+    });
+  }
+
+  initChrome() {
+    const nudge = document.createElement('div');
+    nudge.style.cssText = "position:fixed; left:50%; bottom:118px; transform:translateX(-50%); z-index:54; display:none; align-items:center; gap:8px; padding:8px 16px; border-radius:999px; background:rgba(20,20,32,0.85); backdrop-filter:blur(10px); border:1px solid rgba(110,168,254,0.3); color:#a9c9ff; font-family:'JetBrains Mono',monospace; font-size:12px; box-shadow:0 8px 24px rgba(0,0,0,0.4); animation:nudgebob 1.6s ease-in-out infinite; pointer-events:none;";
+    nudge.innerHTML = "Scroll to continue <i class='fas fa-chevron-down'></i>";
+    document.body.appendChild(nudge);
+    this._nudge = nudge;
+
+    const skip = document.createElement('button');
+    skip.setAttribute('data-skip', '');
+    skip.style.cssText = "position:fixed; right:20px; bottom:118px; z-index:56; display:none; align-items:center; gap:7px; padding:9px 15px; border-radius:999px; background:rgba(20,20,32,0.85); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.14); color:#c7cbd6; font-family:'JetBrains Mono',monospace; font-size:12px; cursor:pointer; box-shadow:0 8px 24px rgba(0,0,0,0.4); transition:all .2s;";
+    skip.innerHTML = "<i class='fas fa-forward'></i> Skip intro";
+    skip.addEventListener('mouseenter', () => { skip.style.borderColor = 'rgba(110,168,254,0.4)'; skip.style.color = '#a9c9ff'; });
+    skip.addEventListener('mouseleave', () => { skip.style.borderColor = 'rgba(255,255,255,0.14)'; skip.style.color = '#c7cbd6'; });
+    skip.addEventListener('click', () => this.skipIntro());
+    document.body.appendChild(skip);
+    this._skipBtn = skip;
+  }
+
+  showNudge(on) { if (this._nudge) this._nudge.style.display = on ? 'flex' : 'none'; }
+  showSkip(on) { if (this._skipBtn) this._skipBtn.style.display = on ? 'inline-flex' : 'none'; }
+
+  revealInstant(sec) {
+    const q = sec.querySelector('[data-q]');
+    const qbubble = sec.querySelector('[data-q] > div');
+    const a = sec.querySelector('[data-a]');
+    const think = sec.querySelector('[data-a-think]');
+    const body = sec.querySelector('[data-a-body]');
+    const lead = sec.querySelector('[data-stream-line]');
+    sec.style.display = '';
+    if (qbubble && qbubble.dataset.qtext) qbubble.textContent = qbubble.dataset.qtext;
+    if (q) { q.style.opacity = '1'; q.style.transform = 'none'; }
+    if (a) { a.style.opacity = '1'; a.style.transform = 'none'; }
+    if (think) think.style.display = 'none';
+    if (body) { body.style.opacity = '1'; body.style.transform = 'none'; }
+    if (lead) lead.textContent = lead.dataset.line || lead.textContent;
+    this.revealChips(sec);
+    sec.querySelectorAll('[data-exp-group]').forEach(g => { g.style.opacity = '1'; g.style.transform = 'none'; });
+    this.stampUser(q);
+    this.stampAgent(a);
+  }
+
+  skipIntro() {
+    this._skip = true;
+    this.showNudge(false);
+    this.showSkip(false);
+    document.querySelectorAll('[data-qa]').forEach(sec => this.revealInstant(sec));
+    if (this._pickActive) this._pickActive();
+  }
+
+  waitFor(cond) {
+    return new Promise(res => {
+      const t = () => cond() ? res() : setTimeout(t, 100);
+      t();
+    });
+  }
+
+  async initChat() {
+    const sections = [...document.querySelectorAll('[data-qa]')];
+    const gate = !window.__introPlayed;
+    window.__introPlayed = true;
+
+    if (!gate) {
+      sections.forEach(sec => {
+        let started = false;
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (!e.isIntersecting || started) return;
+            started = true;
+            io.unobserve(sec);
+            this.playSection(sec);
+          });
+        }, { threshold: 0.2, rootMargin: '0px 0px -12% 0px' });
+        io.observe(sec);
+      });
+      return;
+    }
+
+    // Reduced motion: reveal everything instantly, no gated intro.
+    if (this._reducedMotion) { sections.forEach(sec => this.revealInstant(sec)); if (this._pickActive) this._pickActive(); return; }
+
+    // Hard load: gate the conversation. Hide upcoming messages so the page
+    // can't be scrolled to them until each is asked and answered in sequence.
+    sections.forEach(sec => { sec.style.display = 'none'; });
+    setTimeout(() => { this._heroStreamDone = true; }, 7000); // safety unlock
+    await this.waitFor(() => this._heroStreamDone);
+    this.showSkip(true);
+    let prevEnd = document.getElementById('hero-answer');
+    for (const sec of sections) {
+      if (this._skip) break;
+      await this.waitScrollEnd(prevEnd);   // wait for visitor to read to the end of the last message
+      if (this._skip) break;
+      await new Promise(r => setTimeout(r, 350));
+      sec.style.display = '';
+      if (this._pickActive) this._pickActive();
+      await this.playSection(sec);
+      prevEnd = sec;
+    }
+    this.showSkip(false);
+  }
+
+  initComposer() {
+    const input = document.getElementById('reply-input');
+    const send = document.getElementById('reply-send');
+    const thread = document.getElementById('reply-thread');
+    const bar = document.querySelector('[data-composer]');
+    if (!input || !send || !thread) return;
+    const grow = () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 160) + 'px'; };
+    input.addEventListener('input', grow);
+    input.addEventListener('focus', () => { if (bar) { bar.style.borderColor = 'rgba(110,168,254,0.5)'; bar.style.boxShadow = '0 0 0 3px rgba(110,168,254,0.12)'; } });
+    input.addEventListener('blur', () => { if (bar) { bar.style.borderColor = 'rgba(255,255,255,0.1)'; bar.style.boxShadow = 'none'; } });
+
+    const addUser = (text) => {
+      const row = document.createElement('div');
+      row.dataset.sender = 'user';
+      row.style.cssText = 'display:flex; justify-content:flex-end;';
+      const b = document.createElement('div');
+      b.style.cssText = "max-width:75%; padding:12px 18px; border-radius:16px 16px 4px 16px; background:linear-gradient(180deg, rgba(110,168,254,0.18), rgba(110,168,254,0.12)); border:1px solid rgba(110,168,254,0.28); box-shadow:0 6px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08); color:#dbe4f5; font-size:15px; line-height:1.5; white-space:pre-wrap; word-break:break-word;";
+      b.textContent = text;
+      row.appendChild(b);
+      thread.appendChild(row);
+      return row;
+    };
+    const addAgent = (html) => {
+      const prev = thread.lastElementChild;
+      const prevAgent = prev && prev.dataset.sender === 'agent';
+      const row = document.createElement('div');
+      row.dataset.sender = 'agent';
+      row.style.cssText = 'display:flex; gap:14px; align-items:flex-start; margin-top:' + (prevAgent ? '4px' : '0') + ';';
+      const avatar = prevAgent
+        ? '<div style="width:40px; flex:none;"></div>'
+        : '<div style="position:relative; width:40px; height:40px; flex:none;"><div style="position:absolute; inset:-2px; border-radius:50%; background:linear-gradient(150deg, #32405c 0%, #55688f 50%, #2c3850 100%);"></div><img src="assets/profile.jpg" alt="" style="position:absolute; inset:2px; width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0c0e14;"></div>';
+      const radius = prevAgent ? '16px' : '4px 16px 16px 16px';
+      row.innerHTML = avatar + '<div style="flex:1; min-width:0;"><div style="display:inline-block; padding:14px 18px; border-radius:' + radius + '; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.09); box-shadow:0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05); color:#c1c7d6; font-size:15px; line-height:1.6;">' + html + '</div></div>';
+      thread.appendChild(row);
+      return row;
+    };
+
+    const scrollEnd = () => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+
+    const submit = () => {
+      const text = input.value.trim();
+      if (!text) return;
+      addUser(text);
+      input.value = '';
+      grow();
+      scrollEnd();
+      const typing = addAgent('<span style="display:inline-flex; gap:5px; align-items:center; height:14px;"><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .18s infinite;"></span><span style="width:7px; height:7px; border-radius:50%; background:#6ea8fe; animation:pulsedot 1s ease-in-out .36s infinite;"></span></span>');
+      scrollEnd();
+      const mail = 'mailto:k@kamaropoulos.com?subject=' + encodeURIComponent('Message from your résumé site') + '&body=' + encodeURIComponent(text);
+      setTimeout(() => {
+        typing.remove();
+        addAgent('Thanks for reaching out! Opening your mail app so this goes straight to my inbox — I\'ll get back to you soon. <a href="' + mail + '" style="color:#6ea8fe;">Didn\'t open? Click here.</a>');
+        scrollEnd();
+        window.location.href = mail;
+      }, 1100);
+    };
+
+    send.addEventListener('click', submit);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); }
+    });
+  }
+
+  initContactActions() {
+    const btn = document.querySelector('[data-copy-email]');
+    if (!btn) return;
+    const label = btn.querySelector('[data-copy-label]');
+    btn.addEventListener('click', async () => {
+      const email = 'k@kamaropoulos.com';
+      try {
+        await navigator.clipboard.writeText(email);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = email; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch (e2) {}
+        ta.remove();
+      }
+      if (label) {
+        const prev = label.textContent;
+        label.textContent = 'Copied ✓';
+        btn.style.background = '#5eba8e';
+        setTimeout(() => { label.textContent = prev; btn.style.background = '#6ea8fe'; }, 1600);
+      }
+    });
+  }
+
+  initProgress() {
+    const bar = document.querySelector('[data-progress]');
+    if (!bar) return;
+    const onScroll = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const p = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      bar.style.width = p + '%';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  initScrollSpy() {
+    const links = [...document.querySelectorAll('[data-nav-link]')];
+    const nav = document.querySelector('[data-navbar]');
+    const highlight = document.querySelector('[data-nav-highlight]');
+    if (!links.length || !nav || !highlight) return;
+    const moveHighlight = (link) => {
+      const nr = nav.getBoundingClientRect();
+      const lr = link.getBoundingClientRect();
+      highlight.style.width = lr.width + 'px';
+      highlight.style.transform = 'translateX(' + (lr.left - nr.left - 6) + 'px)';
+    };
+    const crumbLabel = document.querySelector('[data-breadcrumb-label]');
+    const labelFor = {};
+    links.forEach(l => { labelFor[l.getAttribute('data-nav-link')] = l.textContent.trim(); });
+    const setActive = (id) => {
+      links.forEach(l => {
+        const active = l.getAttribute('data-nav-link') === id;
+        l.style.color = active ? '#a9c9ff' : '#8a90a3';
+        if (active) moveHighlight(l);
+      });
+      if (crumbLabel && labelFor[id]) crumbLabel.textContent = labelFor[id];
+      document.querySelectorAll('[data-crumb]').forEach(c => {
+        c.style.color = c.getAttribute('data-crumb') === id ? '#a9c9ff' : '#c7cbd6';
+      });
+    };
+    requestAnimationFrame(() => { highlight.style.transition = 'none'; setActive('top'); requestAnimationFrame(() => { highlight.style.transition = ''; }); });
+    const ids = links.map(l => l.getAttribute('data-nav-link'));
+    const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+    let currentId = 'top';
+    const pickActive = () => {
+      const line = 120; // just below the sticky nav / snap line
+      let active = sections[0];
+      for (const sec of sections) {
+        if (sec.offsetParent === null || getComputedStyle(sec).display === 'none') continue;
+        if (sec.getBoundingClientRect().top - line <= 1) active = sec;
+        else break;
+      }
+      // bottom of page → force last *visible* section active
+      const h = document.documentElement;
+      if (h.scrollHeight - h.clientHeight - h.scrollTop < 4) {
+        const vis = sections.filter(s => s.offsetParent !== null && getComputedStyle(s).display !== 'none');
+        if (vis.length) active = vis[vis.length - 1];
+      }
+      if (active && active.id !== currentId) { currentId = active.id; setActive(active.id); }
+    };
+    this._pickActive = pickActive;
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { pickActive(); ticking = false; });
+    }, { passive: true });
+    pickActive();
+    window.addEventListener('resize', () => {
+      const activeLink = links.find(l => l.getAttribute('data-nav-link') === currentId) || links[0];
+      moveHighlight(activeLink);
+    });
+    const topbar = document.querySelector('[data-topbar]');
+    const navid = document.querySelector('[data-navid]');
+    const intro = document.querySelector('[data-hero-intro]');
+    let navShift = 0;
+    const resumeBtn = document.querySelector('[data-resume]');
+    const measureShift = () => {
+      // Center the pill nav within the gap between the profile and the résumé button.
+      if (!nav || !navid || !topbar) { navShift = 0; return; }
+      const prevT = nav.style.transition, prevTf = nav.style.transform;
+      nav.style.transition = 'none'; nav.style.transform = 'none';
+      const tb = topbar.getBoundingClientRect();
+      const nr = nav.getBoundingClientRect();
+      const pr = navid.getBoundingClientRect();
+      const rr = resumeBtn ? resumeBtn.getBoundingClientRect() : { left: tb.right - 40 };
+      const gapCenter = (pr.right + rr.left) / 2 - tb.left;
+      const target = gapCenter - nr.width / 2;
+      navShift = target - (nr.left - tb.left);
+      nav.style.transform = prevTf; nav.offsetWidth; nav.style.transition = prevT;
+    };
+    const onChrome = () => {
+      const scrolled = window.scrollY > 24;
+      if (topbar) {
+        topbar.style.background = scrolled ? 'rgba(12,14,20,0.72)' : 'transparent';
+        topbar.style.borderBottomColor = scrolled ? 'rgba(255,255,255,0.08)' : 'transparent';
+        topbar.style.backdropFilter = scrolled ? 'blur(14px)' : 'blur(0px)';
+        topbar.style.padding = scrolled ? '12px 40px' : '16px 40px';
+        topbar.style.boxShadow = scrolled ? '0 10px 30px rgba(0,0,0,0.35)' : 'none';
+      }
+      const t = Math.max(0, Math.min(1, window.scrollY / 170));
+      if (intro) {
+        intro.style.opacity = (1 - t).toFixed(3);
+        intro.style.transform = 'translateY(' + (-t * 26).toFixed(1) + 'px) scale(' + (1 - t * 0.12).toFixed(3) + ')';
+        intro.style.pointerEvents = t > 0.9 ? 'none' : 'auto';
+      }
+      const on = t > 0.55;
+      if (navid) {
+        navid.style.opacity = on ? '1' : '0';
+        navid.style.transform = on ? 'translateX(0) scale(1)' : 'translateX(-6px) scale(.94)';
+        navid.style.pointerEvents = on ? 'auto' : 'none';
+      }
+      if (nav && getComputedStyle(nav).display !== 'none') {
+        nav.style.transform = on ? 'translateX(' + navShift + 'px)' : 'translateX(0)';
+      }
+    };
+    measureShift();
+    this._recenterNav = () => { measureShift(); onChrome(); };
+    window.addEventListener('scroll', onChrome, { passive: true });
+    window.addEventListener('resize', () => { measureShift(); onChrome(); });
+    onChrome();
+
+    const crumbBtn = document.querySelector('[data-breadcrumb-btn]');
+    const crumbMenu = document.querySelector('[data-breadcrumb-menu]');
+    const crumbCaret = document.querySelector('[data-breadcrumb-caret]');
+    if (crumbBtn && crumbMenu) {
+      let open = false;
+      const setOpen = (v) => {
+        open = v;
+        crumbMenu.style.opacity = v ? '1' : '0';
+        crumbMenu.style.pointerEvents = v ? 'auto' : 'none';
+        crumbMenu.style.transform = 'translateX(-50%) translateY(' + (v ? '0' : '-6px') + ')';
+        if (crumbCaret) crumbCaret.style.transform = v ? 'rotate(180deg)' : 'none';
+      };
+      crumbBtn.addEventListener('click', (e) => { e.stopPropagation(); setOpen(!open); });
+      crumbMenu.querySelectorAll('[data-crumb]').forEach(a => a.addEventListener('click', () => setOpen(false)));
+      crumbMenu.querySelectorAll('[data-crumb]').forEach(a => {
+        a.addEventListener('mouseenter', () => { a.style.background = 'rgba(255,255,255,0.05)'; });
+        a.addEventListener('mouseleave', () => { a.style.background = 'transparent'; });
+      });
+      document.addEventListener('click', () => { if (open) setOpen(false); });
+    }
+  }
+
+  initSpotlight() {
+    const spot = document.querySelector('[data-spotlight]');
+    const hero = document.getElementById('top');
+    if (!spot || !hero) return;
+    let raf = null;
+    const move = (x, y) => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        spot.style.background = 'radial-gradient(600px circle at ' + x + 'px ' + y + 'px, rgba(110,168,254,0.09), transparent 55%)';
+        spot.style.opacity = '1';
+        raf = null;
+      });
+    };
+    hero.addEventListener('mousemove', (e) => {
+      const r = hero.getBoundingClientRect();
+      move(e.clientX - r.left, e.clientY - r.top);
+    });
+    hero.addEventListener('mouseleave', () => { spot.style.opacity = '0'; });
+  }
+
+  initParticles() {
+    if (this._reducedMotion) { document.querySelectorAll('canvas[data-particles]').forEach(c => c.style.display = 'none'); return; }
+    const show = this.props.showParticles ?? true;
+    const dens = this.props.particleDensity ?? 1;
+    document.querySelectorAll('canvas[data-particles]').forEach(canvas => {
+      const ctx = canvas.getContext('2d');
+      const wrap = canvas.parentElement;
+      if (!show) { canvas.style.display = 'none'; return; }
+      canvas.style.display = '';
+      let W, H, pts;
+      const DPR = Math.min(window.devicePixelRatio || 1, 2);
+      const resize = () => {
+        W = window.innerWidth; H = window.innerHeight;
+        canvas.width = W * DPR; canvas.height = H * DPR;
+        canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        const n = Math.round((W * H) / 16000 * dens);
+        pts = Array.from({length: n}, () => ({
+          x: Math.random()*W, y: Math.random()*H,
+          vx: (Math.random()-0.5)*0.28, vy: (Math.random()-0.5)*0.28
+        }));
+      };
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+      const draw = () => {
+        ctx.clearRect(0,0,W,H);
+        for (const p of pts) {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x<0||p.x>W) p.vx*=-1;
+          if (p.y<0||p.y>H) p.vy*=-1;
+        }
+        for (let i=0;i<pts.length;i++){
+          for (let j=i+1;j<pts.length;j++){
+            const a=pts[i], b=pts[j];
+            const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
+            if (d<130){
+              ctx.strokeStyle = 'rgba(110,168,254,' + (0.16*(1-d/130)).toFixed(3) + ')';
+              ctx.lineWidth = 1;
+              ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+            }
+          }
+        }
+        for (const p of pts){
+          ctx.fillStyle = 'rgba(169,201,255,0.6)';
+          ctx.beginPath(); ctx.arc(p.x,p.y,1.4,0,Math.PI*2); ctx.fill();
+        }
+        this._raf.push(requestAnimationFrame(draw));
+      };
+      draw();
+    });
+  }
+}
+</script>
+</body>
+</html>
